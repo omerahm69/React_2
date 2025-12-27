@@ -1,6 +1,6 @@
 import { AboutSection } from "@/components/AboutSection";
 import { ActivitiesSection } from "@/components/ActivitiesSection";
-import { Footer } from "@/components/FooterSection";
+import { FooterSection as Footer } from "@/components/FooterSection";
 import { HeritageHighlight } from "@/components/HeritageHighligt";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
