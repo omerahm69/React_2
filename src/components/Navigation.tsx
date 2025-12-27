@@ -10,17 +10,17 @@ import { Link, useLocation } from 'react-router-dom';
 
 
 export const Navigation = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     const location = useLocation();
     
 
     const navLinks = [
-        { href: "/", label: t("nav.home") },
-        {  href: "/About", label: t("nav.about") },
-        { href: "/Our_Activities", label: t("nav.activities") },
-        { href: "/Urban_Heritage", label: t("nav.heritage") },
-        { href: "/Contact", label: t("nav.contact") },
+        { href: "/", label: t("Home") },
+        {  href: "/About", label: t("About Us") },
+        { href: "/Our_Activities", label: t("Our Activities") },
+        { href: "/Urban_Heritage", label: t("Urann Heritage") },
+        { href: "/Contact", label: t("Contact") },
     ];
 
 return (
