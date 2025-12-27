@@ -1,12 +1,12 @@
 
 
-
 import { LanguageSwitcher } from '@/components/LanguageSwitcher';
 import { cn } from '@/lib/utils'; // or your path
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useLocation } from 'react-router-dom';
+
 
 
 export const Navigation = () => {
@@ -32,6 +32,8 @@ return (
             to="/"
             className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
           >
+            <img src="assets/logo.webp" alt="logo" />
+
             <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent animate-glow">
               <div className="absolute inset-1 rounded-full bg-background flex items-center justify-center">
                 <span className="font-serif font-bold text-2xl gradient-text">U</span>
