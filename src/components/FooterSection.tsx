@@ -22,7 +22,7 @@ export const FooterSection = () => {
               <div className="flex items-center gap-3">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent">
                   <div className="absolute inset-1 rounded-full bg-secondary flex items-center justify-center">
-                    <span className="font-serif font-bold text-xl text-primary">U</span>
+                    <span className="font-serif font-bold text-xl text-primary">AKAN</span>
                   </div>
                 </div>
                 <div>
@@ -35,7 +35,6 @@ export const FooterSection = () => {
               {t("footer.description")}
             </p>
           </div>
-
           {/* Quick Links */}
           <div>
             <h4 className="font-serif font-semibold text-lg mb-6">{t("footer.quickLinks")}</h4>
@@ -65,13 +64,14 @@ export const FooterSection = () => {
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-primary shrink-0" />
                 <a href="mailto:info@urbanheritage.org" className="text-secondary-foreground/70 text-sm hover:text-primary transition-colors">
-                  info@urbanheritage.org
+                  AKAN.heritage.1@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone size={18} className="text-primary shrink-0" />
                 <span className="text-secondary-foreground/70 text-sm">
-                  +291 1 123 456
+                  +4792510241
+                  <a href="https://www.facebook.com/share/p/rYbbZzmT5W6XmmBj/?mibextid=WC7FNe" data-i18n="footer_facebook"> facebook </a>
                 </span>
               </div>
             </div>

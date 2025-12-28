@@ -15,7 +15,7 @@ export const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(to bottom, hsla(30, 15%, 8%, 0.6), hsla(30, 15%, 8%, 0.8)), url('https://images.unsplash.com/photo-1568322503175-67a3bffee8b6?q=80&w=2070')`,
+          backgroundImage: `linear-gradient(to bottom, hsla(30, 15%, 8%, 0.6), hsla(30, 15%, 8%, 0.8)), url('./assets/Entrance_of_Old_Arab_Souk.webp')`,
         }}
       />
 

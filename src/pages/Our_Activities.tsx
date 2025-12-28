@@ -7,28 +7,42 @@ const Activities = () => {
   const { t } = useLanguage();
 
   const projects = [
-    {
-      title: t("activities.act1.title"),
-      status: "In Progress",
-      description: t("activities.act1.desc"),
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800",
-      achievements: ["Structural assessment completed", "Traditional materials sourced", "Master craftsmen engaged"],
-    },
-    {
-      title: t("activities.act3.title"),
-      status: "Ongoing",
-      description: t("activities.act3.desc"),
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
-      achievements: ["5,000+ photographs digitized", "3D models of key buildings", "Interactive virtual tours"],
-    },
-    {
-      title: t("activities.act2.title"),
-      status: "Active",
-      description: t("activities.act2.desc"),
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
-      achievements: ["120 apprentices trained", "Partnership with local schools", "Certificate program established"],
-    },
-  ];
+  {
+    title: t("activities.act1.title"),
+    status: "In Progress",
+    description: t("activities.act1.desc"),
+    image: "/assets/images/Studi_1.png",
+    subtitle: "UNESCO – 1998",
+    achievements: [
+      "Structural assessment completed",
+      "Traditional materials sourced",
+      "Master craftsmen engaged",
+    ],
+  },
+  {
+    title: t("activities.act3.title"),
+    status: "Ongoing",
+    description: t("activities.act3.desc"),
+    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
+    subtitle: "UNESCO – 1998",
+    achievements: [
+      "5,000+ photographs digitized",
+      "3D models of key buildings",
+      "Interactive virtual tours",
+    ],
+  },
+  {
+    title: t("activities.act2.title"),
+    status: "Active",
+    description: t("activities.act2.desc"),
+    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
+    achievements: [
+      "120 apprentices trained",
+      "Partnership with local schools",
+      "Certificate program established",
+    ],
+  },
+];
 
   return (
     <div className="min-h-screen bg-background">

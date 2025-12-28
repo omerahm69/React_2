@@ -15,13 +15,13 @@ const translations: Record<Language, Record<string, string>> = {
     "nav.home": "Home",
     "nav.about": "About Us",
     "nav.activities": "Our Activities",
-    "nav.heritage": "Heritage of Massawa",
+    "nav.heritage": "Urban Heritage",
     "nav.contact": "Contact",
     
     // Hero
     "hero.tagline": "Preserving History • Building Future",
-    "hero.title1": "Urban",
-    "hero.title2": "Heritage",
+    "hero.title1": "Massawa",
+    "hero.title2": "Urban Heritage",
     "hero.description": "Dedicated to the preservation, documentation, and celebration of Massawa's extraordinary architectural and cultural heritage.",
     "hero.cta1": "Explore Our Mission",
     "hero.cta2": "View Heritage Sites",
