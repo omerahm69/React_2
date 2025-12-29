@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
@@ -15,7 +15,7 @@ export const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(to bottom, hsla(30, 15%, 8%, 0.6), hsla(30, 15%, 8%, 0.8)), url('./assets/Entrance_of_Old_Arab_Souk.webp')`,
+          backgroundImage: `linear-gradient(to bottom, hsla(20, 2%, 68%, 0.60), hsla(30, 2%, 40%, 0.80)), url('./assets/Entrance_of_Old_Arab_Souk.webp')`,
         }}
       />
 

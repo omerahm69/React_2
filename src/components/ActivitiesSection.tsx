@@ -1,4 +1,4 @@
-import { useLanguage } from "@/contexts/LanguageContext";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -44,7 +44,7 @@ export const ActivitiesSection = () => {
             >
               <div className="relative h-64 overflow-hidden">
                 <img 
-                  src={activity.image} 
+                  src={activity.image}
                   alt={activity.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />

@@ -1,4 +1,7 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import React, { createContext, ReactNode, useContext, useEffect, useState, } from 'react';
+import { isRTL, translations } from './translations';
+
+
 
 type Language = "en" | "ar" | "ti";
 
@@ -8,6 +11,53 @@ interface LanguageContextType {
   t: (key: string) => string;
   dir: "ltr" | "rtl";
 }
+
+type LanguageContextType = {
+  language: string;
+  setLanguage: (lang: string) => void;
+  t: (key: string) => string;
+};
+
+
+Export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
+interface LanguageProviderProps {
+  children: ReactNode;
+}
+
+export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem('language') as Language;
+    return saved && ['en', 'ar', 'ti'].includes(saved) ? saved : 'en';
+  });
+
+  const dir: "ltr" | "rtl" = isRTL(language) ? "rtl" : "ltr";
+  useEffect(() => {
+    localStorage.setItem('language', language);
+    document.documentElement.dir = isRTL(language) ? 'rtl' : 'ltr';
+    document.documentElement.lang = language;
+  }, [language]);
+
+
+    
+  const t = (key: string): string => {
+    return translations[language][key] ?? translations.en[key] ?? key;
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = (): LanguageContextType => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error('useLanguage must be used within a LanguageProvider');
+  }
+  return context;
+};
 
 const translations: Record<Language, Record<string, string>> = {
   en: {

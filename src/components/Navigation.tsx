@@ -1,52 +1,45 @@
 
 
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
-import { useTranslation } from "react-i18next";
-import { Link, useLocation } from "react-router-dom";
+
+import { LanguageSwitcher } from '@/components/LanguageSwitcher';
+import { cn } from '@/lib/utils'; // or your path
+import { Menu, X } from 'lucide-react';
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Link, useLocation } from 'react-router-dom';
+
 
 export const Navigation = () => {
-  const { t } = useTranslation();
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+    const { t, i18n } = useTranslation();
+    const [isOpen, setIsOpen] = useState(false);
+    const location = useLocation();
+    
 
-  const navLinks = [
-    { href: "/", label: t("Home") },
-    { href: "/About", label: t("About Us") },
-    { href: "/Our_Activities", label: t("Our Activities") },
-    { href: "/Urban_Heritage", label: t("Urban Heritage") },
-    { href: "/Contact", label: t("Contact") },
-  ];
+    const navLinks = [
+        { href: "/", label: t("Home") },
+        {  href: "/About", label: t("About Us") },
+        { href: "/Our_Activities", label: t("Our Activities") },
+        { href: "/Urban_Heritage", label: t("Urann Heritage") },
+        { href: "/Contact", label: t("Contact") },
+    ];
 
-  return (
+return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-6 py-4">
-        {/* Top row */}
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link
             to="/"
             className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
           >
-            <img src="/assets/logo.webp" alt="logo" className="h-12 w-auto" />
-
-            <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent animate-glow">
               <div className="absolute inset-1 rounded-full bg-background flex items-center justify-center">
-                <span className="font-serif font-bold text-xl gradient-text">
-                  AKAN
-                </span>
+                <span className="font-serif font-bold text-2xl gradient-text">U</span>
               </div>
             </div>
-
             <div className="hidden sm:block">
-              <span className="font-serif font-bold text-xl gradient-text">
-                {t("brand.title")}
-              </span>
-              <span className="font-serif font-light text-xl text-foreground ml-1">
-                {t("brand.subtitle")}
-              </span>
+              <span className="font-serif font-bold text-xl gradient-text">{t("hero.title1")}</span>
+              <span className="font-serif font-light text-xl text-foreground">{t("hero.title2")}</span>
             </div>
           </Link>
 
@@ -84,7 +77,7 @@ export const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <div className="lg:hidden mt-4 pt-4 border-t border-border animate-fade-in">
+          <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <div className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <Link
