@@ -67,7 +67,7 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-
+              
               {/* Contact Form */}
               <div className="card-hover bg-card p-8 rounded-3xl">
                 <form onSubmit={handleSubmit} className="space-y-6">
