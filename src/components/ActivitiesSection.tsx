@@ -10,19 +10,19 @@ export const ActivitiesSection = () => {
       number: "01",
       title: t("activities.act1.title"),
       description: t("activities.act1.desc"),
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800",
+      image: "/IMG-20231231-WA0008.webp",
     },
     {
       number: "02",
       title: t("activities.act2.title"),
       description: t("activities.act2.desc"),
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
+      image: "/Carta_Eritrea.webp",
     },
     {
       number: "03",
       title: t("activities.act3.title"),
       description: t("activities.act3.desc"),
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
+      image: "public/IMG-20231231-WA0008.webp",
     },
   ];
 
