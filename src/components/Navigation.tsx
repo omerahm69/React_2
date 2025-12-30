@@ -1,29 +1,26 @@
 
-
-
-import { LanguageSwitcher } from '@/components/LanguageSwitcher';
-import { cn } from '@/lib/utils'; // or your path
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link, useLocation } from 'react-router-dom';
-
+import logo from "@/assets/logo.webp";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { cn } from "@/lib/utils";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
-    const { t, i18n } = useTranslation();
-    const [isOpen, setIsOpen] = useState(false);
-    const location = useLocation();
-    
+  const { t } = useTranslation();
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
 
-    const navLinks = [
-        { href: "/", label: t("Home") },
-        {  href: "/About", label: t("About Us") },
-        { href: "/Our_Activities", label: t("Our Activities") },
-        { href: "/Urban_Heritage", label: t("Urann Heritage") },
-        { href: "/Contact", label: t("Contact") },
-    ];
+  const navLinks = [
+    { href: "/", label: t("Home") },
+    { href: "/About", label: t("About Us") },
+    { href: "/Our_Activities", label: t("Our Activities") },
+    { href: "/Urban_Heritage", label: t("Urban Heritage") },
+    { href: "/Contact", label: t("Contact") },
+  ];
 
-return (
+  return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
@@ -32,15 +29,16 @@ return (
             to="/"
             className="group flex items-center gap-3 transition-transform duration-300 hover:scale-105"
           >
-            <div className="relative w-14 h-14 rounded-full overflow-hidden bg-gradient-to-br from-primary to-accent animate-glow">
-              <div className="absolute inset-1 rounded-full bg-background flex items-center justify-center">
-                <span className="font-serif font-bold text-2xl gradient-text">U</span>
-              </div>
+            <div className="relative w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+              <img
+                src={logo}
+                alt="Urban Heritage Logo"
+                className="h-8 w-8 rounded-full"
+              />
             </div>
-            <div className="hidden sm:block">
-              <span className="font-serif font-bold text-xl gradient-text">{t("hero.title1")}</span>
-              <span className="font-serif font-light text-xl text-foreground">{t("hero.title2")}</span>
-            </div>
+            <span className="font-serif font-bold text-2xl gradient-text">
+              AKAN
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -62,7 +60,7 @@ return (
             <LanguageSwitcher />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Controls */}
           <div className="lg:hidden flex items-center gap-2">
             <LanguageSwitcher />
             <button

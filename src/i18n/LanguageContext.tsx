@@ -1,7 +1,5 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState, } from 'react';
-import { isRTL, translations } from './translations';
 
-
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 type Language = "en" | "ar" | "ti";
 
@@ -12,66 +10,19 @@ interface LanguageContextType {
   dir: "ltr" | "rtl";
 }
 
-type LanguageContextType = {
-  language: string;
-  setLanguage: (lang: string) => void;
-  t: (key: string) => string;
-};
-
-
-Export const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-interface LanguageProviderProps {
-  children: ReactNode;
-}
-
-export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem('language') as Language;
-    return saved && ['en', 'ar', 'ti'].includes(saved) ? saved : 'en';
-  });
-
-  const dir: "ltr" | "rtl" = isRTL(language) ? "rtl" : "ltr";
-  useEffect(() => {
-    localStorage.setItem('language', language);
-    document.documentElement.dir = isRTL(language) ? 'rtl' : 'ltr';
-    document.documentElement.lang = language;
-  }, [language]);
-
-
-    
-  const t = (key: string): string => {
-    return translations[language][key] ?? translations.en[key] ?? key;
-  };
-
-  return (
-    <LanguageContext.Provider value={value}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = (): LanguageContextType => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-};
-
 const translations: Record<Language, Record<string, string>> = {
   en: {
     // Navigation
     "nav.home": "Home",
     "nav.about": "About Us",
     "nav.activities": "Our Activities",
-    "nav.heritage": "Urban Heritage",
+    "nav.heritage": "Heritage of Massawa",
     "nav.contact": "Contact",
     
     // Hero
     "hero.tagline": "Preserving History • Building Future",
-    "hero.title1": "Massawa",
-    "hero.title2": "Urban Heritage",
+    "hero.title1": "Urban",
+    "hero.title2": "Heritage",
     "hero.description": "Dedicated to the preservation, documentation, and celebration of Massawa's extraordinary architectural and cultural heritage.",
     "hero.cta1": "Explore Our Mission",
     "hero.cta2": "View Heritage Sites",
