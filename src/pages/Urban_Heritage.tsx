@@ -60,7 +60,7 @@ const Heritage = () => {
                 <article key={site.name} className="group card-hover bg-card rounded-3xl overflow-hidden">
                   <div className="relative h-64 overflow-hidden">
                     <img 
-                      src={site.image} 
+                      src={site.image}
                       alt={site.name}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />

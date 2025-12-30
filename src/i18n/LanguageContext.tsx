@@ -3,12 +3,31 @@ import { createContext, ReactNode, useContext, useEffect, useState } from "react
 
 type Language = "en" | "ar" | "ti";
 
-interface LanguageContextType {
-  language: Language;
-  setLanguage: (lang: Language) => void;
-  t: (key: string) => string;
-  dir: "ltr" | "rtl";
-}
+export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
+  const [language, setLanguageState] = useState<Language>(
+    (localStorage.getItem("lang") as Language) || "en"
+  );
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    i18n.changeLanguage(lang);
+    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+    localStorage.setItem("lang", lang);
+  };
+
+  const value = {
+    language,
+    setLanguage,
+    t: i18n.t.bind(i18n),
+    dir: language === "ar" ? "rtl" : "ltr",
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
 
 const translations: Record<Language, Record<string, string>> = {
   en: {

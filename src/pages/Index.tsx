@@ -1,9 +1,9 @@
-import { AboutSection } from "@/components/AboutSection";
-import { ActivitiesSection } from "@/components/ActivitiesSection";
 import { FooterSection as Footer } from "@/components/FooterSection";
+import GeographySection from "@/components/GeographySection";
 import { HeritageHighlight } from "@/components/HeritageHighligt";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
+import TimelineSection from "@/components/TimelineSection";
 
 const Index = () => {
   return (
@@ -12,8 +12,8 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <AboutSection />
-        <ActivitiesSection />
+        <GeographySection />
+        <TimelineSection />
         <HeritageHighlight />
       </main>
       <Footer />
