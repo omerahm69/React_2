@@ -10,19 +10,19 @@ export const ActivitiesSection = () => {
       number: "01",
       title: t("activities.act1.title"),
       description: t("activities.act1.desc"),
-      image: "/IMG-20231231-WA0008.webp",
+      image: "/images/Studi_1.webp",
     },
     {
       number: "02",
       title: t("activities.act2.title"),
       description: t("activities.act2.desc"),
-      image: "/Carta_Eritrea.webp",
+      image: "/images/Studi_2.webp",
     },
     {
       number: "03",
       title: t("activities.act3.title"),
       description: t("activities.act3.desc"),
-      image: "public/IMG-20231231-WA0008.webp",
+      image: "/images/Studi_3.webp"
     },
   ];
 

@@ -17,7 +17,7 @@ export const HeritageHighlight = () => {
           <div className="relative">
             <div className="card-hover rounded-3xl overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=1200" 
+                src="/IMG-20231231-WA0008.webp"
                 alt="Massawa historic port"
                 className="w-full h-[500px] object-cover"
               />
