@@ -35,11 +35,15 @@ const TimelineSection = () => {
 
             {/* Timeline Events */}
             <div className="space-y-12">
-              {t.timeline.events.map((event, index) => (
+              {t.timeline.events.map((event
+              :{year: string; description: string}, index: number) => (
                 <AnimatedSection 
                   key={event.year} 
-                  animation={index % 2 === 0 ? 'slide-left' : 'slide-right'}
-                  delay={index * 100}
+                  animation={
+                  dir==='rtl'
+                      ? index % 2 === 0 ? 'slide-right' : 'slide-left'
+                      : index % 2 === 0 ? 'slide-left' : 'slide-right'
+                    }
                 >
                   <div
                     className={cn(

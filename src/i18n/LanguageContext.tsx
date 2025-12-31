@@ -1,25 +1,37 @@
+import i18n from "@/i18n";
+import { createContext, useContext, useEffect, useState } from "react";
 
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+export type Language = "en" | "ar" | "ti";
 
-type Language = "en" | "ar" | "ti";
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: typeof i18n.t;
+  dir: "ltr" | "rtl";
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [language, setLanguageState] = useState<Language>(
-    (localStorage.getItem("lang") as Language) || "en"
-  );
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem("language");
+    return (saved as Language) || "en";
+  });
 
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang);
-    i18n.changeLanguage(lang);
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
-    localStorage.setItem("lang", lang);
-  };
+  const dir: "ltr" | "rtl" = language === "ar" ? "rtl" : "ltr";
 
-  const value = {
+  useEffect(() => {
+    i18n.changeLanguage(language);
+    localStorage.setItem("language", language);
+    document.documentElement.dir = dir;
+    document.documentElement.lang = language;
+  }, [language, dir]);
+
+  const value: LanguageContextType = {
     language,
     setLanguage,
     t: i18n.t.bind(i18n),
-    dir: language === "ar" ? "rtl" : "ltr",
+    dir,
   };
 
   return (
@@ -28,6 +40,15 @@ export const LanguageProvider = ({ children }: { children: React.ReactNode }) =>
     </LanguageContext.Provider>
   );
 };
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used inside LanguageProvider");
+  }
+  return context;
+};
+
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
@@ -332,37 +353,6 @@ const translations: Record<Language, Record<string, string>> = {
   },
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
-    return (saved as Language) || "en";
-  });
 
-  const dir = language === "ar" ? "rtl" : "ltr";
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.dir = dir;
-    document.documentElement.lang = language;
-  }, [language, dir]);
-
-  const t = (key: string): string => {
-    return translations[language][key] || translations.en[key] || key;
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, dir }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-};

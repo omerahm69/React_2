@@ -1,37 +1,37 @@
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
-import { cn } from '@/lib/utils';
-import { ReactNode } from 'react';
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { cn } from "@/lib/utils";
+import React from "react";
 
 interface AnimatedSectionProps {
-  children: ReactNode;
+  children: React.ReactNode;
   className?: string;
-  animation?: 'fade-up' | 'fade-in' | 'slide-left' | 'slide-right' | 'scale';
+  animation?: "fade-up" | "fade-in" | "slide-left" | "slide-right" | "scale";
   delay?: number;
 }
 
 const AnimatedSection = ({
   children,
   className,
-  animation = 'fade-up',
-  delay = 0
+  animation = "fade-up",
+  delay = 0,
 }: AnimatedSectionProps) => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.15 });
 
-  const animationClasses = {
-    'fade-up': 'translate-y-8 opacity-0',
-    'fade-in': 'opacity-0',
-    'slide-left': '-translate-x-8 opacity-0',
-    'slide-right': 'translate-x-8 opacity-0',
-    'scale': 'scale-95 opacity-0',
+  const animationClasses: Record<string, string> = {
+    "fade-up": "translate-y-8 opacity-0",
+    "fade-in": "opacity-0",
+    "slide-left": "-translate-x-8 opacity-0",
+    "slide-right": "translate-x-8 opacity-0",
+    scale: "scale-95 opacity-0",
   };
 
-  const visibleClasses = 'translate-y-0 translate-x-0 scale-100 opacity-100';
+  const visibleClasses = "translate-y-0 translate-x-0 scale-100 opacity-100";
 
   return (
     <div
       ref={ref}
       className={cn(
-        'transition-all duration-700 ease-out',
+        "transition-all duration-700 ease-out",
         isVisible ? visibleClasses : animationClasses[animation],
         className
       )}
