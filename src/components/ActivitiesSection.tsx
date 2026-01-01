@@ -8,8 +8,8 @@ export const ActivitiesSection = () => {
   const activities = [
     {
       number: "01",
-      title: t("activities.act1.title"),
-      description: t("activities.act1.desc"),
+      title: t("Studies"),
+      description: t("Three studies were prepared, after reviewing previous studies. A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998"),
       image: "/images/Studi_1.webp",
     },
     {

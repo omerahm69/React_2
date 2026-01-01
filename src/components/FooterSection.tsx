@@ -58,7 +58,7 @@ export const FooterSection = () => {
               <div className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary mt-1 shrink-0" />
                 <span className="text-secondary-foreground/70 text-sm">
-                  Massawa Old Town, Eritrea
+                  Norge
                 </span>
               </div>
               <div className="flex items-center gap-3">

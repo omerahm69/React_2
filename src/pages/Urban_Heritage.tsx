@@ -7,31 +7,30 @@ const Heritage = () => {
 
   const sites = [
     {
-      name: "Imperial Palace",
+      name: "Classification of the historical buildings",
       era: "19th Century",
       description: "The former residence of Ottoman governors, featuring distinctive coral-block construction and intricate wooden balconies.",
-      image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800",
+      image: "/images/Classification_of_Building.webp",
     },
     {
       name: "Sheikh Hanafi Mosque",
       era: "16th Century",
       description: "One of the oldest mosques in Eritrea, representing centuries of Islamic architectural tradition on the Red Sea coast.",
-      image: "https://images.unsplash.com/photo-1553913861-c0fddf2619ee?q=80&w=800",
+      image: "/images/",
     },
     {
-      name: "Bank of Italy Building",
+      name: "Torino Hotell",
       era: "Early 20th Century",
       description: "A stunning example of Italian rationalist architecture, showcasing the colonial era's European influence on local building styles.",
-      image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800",
+      image: "/images/Torino_hotell.webp",
     },
     {
-      name: "Old Port Warehouses",
+      name: "",
       era: "18th-19th Century",
       description: "Historic trading warehouses that once stored goods from across the Indian Ocean trading network.",
-      image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?q=80&w=800",
+      image: "",
     },
   ];
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -42,16 +41,18 @@ const Heritage = () => {
           <div className="container mx-auto px-6">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("heritage.label")}</span>
             <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("heritage.title1")} <span className="gradient-text">{t("heritage.title2")}</span>
-            </h1>
+              {t("International conventions related to Urban Heritage")} </h1>
+              <p> {t("The Convention of Heritage 1972: It is one of the most important tools to protect and maintain World Cultural Heritage.Most important Organization in this field: The United Nations Educational, Scientific and Cultural Organization (UNESCO). For more information World Heritage Centre (WHC) International Council On Monuments and Sites (ICOMOS) For more information")}</p>
+
+              <span className="gradient-text">{t("An overview of the urban history of the ancient city of Massawa")}</span>
+            
             <div className="max-w-3xl">
               <div className="drop-cap text-muted-foreground text-lg leading-relaxed">
-                {t("heritage.p1")}
+                {t("The Convention of Heritage 1972: It is one of the most important tools to protect and maintain World Cultural Heritage.Most important Organization in this field: The United Nations Educational, Scientific and Cultural Organization (UNESCO). For more information World Heritage Centre (WHC) International Council On Monuments and Sites (ICOMOS) For more information")}
               </div>
             </div>
           </div>
         </section>
-
         {/* Sites Grid */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
@@ -81,7 +82,6 @@ const Heritage = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

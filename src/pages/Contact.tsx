@@ -34,11 +34,11 @@ const Contact = () => {
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("contact.label")}</span>
-            <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("contact.title")} <span className="gradient-text">{t("contact.title2")}</span>
-            </h1>
+            <h3 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
+              {t("Mailing List Sign up")} <span className="gradient-text">{t("Welcome to join us")}</span>
+            </h3>
             <p className="max-w-2xl text-muted-foreground text-lg leading-relaxed">
-              {t("contact.description")}
+            {t("The initiative is open to ideas and further initiatives to spread out the goals of the initiative, to the whole Eritrean diaspora. Therefore, we encourage all Eritreans to get on board with us to achieve our goals. The first step is to be with us on our mailing list.Get news about the initiative sent to your own box and leave your message by suggestions you have for improvement")}
             </p>
           </div>
         </section>
@@ -72,43 +72,43 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">{t("contact.form.name")}</label>
+                      <label className="block text-sm font-medium text-foreground mb-2">{t("Nsame")}</label>
                       <Input 
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
-                        placeholder={t("contact.form.namePlaceholder")}
+                        placeholder={t("")}
                         required
                         className="bg-background"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">{t("contact.form.email")}</label>
+                      <label className="block text-sm font-medium text-foreground mb-2">{t("Email")}</label>
                       <Input 
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({...formData, email: e.target.value})}
-                        placeholder={t("contact.form.emailPlaceholder")}
+                        placeholder={t("")}
                         required
                         className="bg-background"
                       />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">{t("contact.form.subject")}</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">{t("Subject")}</label>
                     <Input 
                       value={formData.subject}
                       onChange={(e) => setFormData({...formData, subject: e.target.value})}
-                      placeholder={t("contact.form.subjectPlaceholder")}
+                      placeholder={t("")}
                       required
                       className="bg-background"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-foreground mb-2">{t("contact.form.message")}</label>
+                    <label className="block text-sm font-medium text-foreground mb-2">{t("Message")}</label>
                     <Textarea 
                       value={formData.message}
                       onChange={(e) => setFormData({...formData, message: e.target.value})}
-                      placeholder={t("contact.form.messagePlaceholder")}
+                      placeholder={t("")}
                       rows={5}
                       required
                       className="bg-background resize-none"

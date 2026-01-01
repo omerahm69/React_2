@@ -6,40 +6,37 @@ import { CheckCircle } from "lucide-react";
 const Activities = () => {
   const { t } = useLanguage();
 
-  const projects = [
+const projects = [
   {
-    title: t("activities.act1.title"),
-    status: "In Progress",
-    description: t("activities.act1.desc"),
-    image: "/assets/images/Studi_1.png",
+    title: t("Documenting History"),
+    status: t("In progress"),
+    description: t(
+      "The Journey of Protecting Massawa's Architectural Treasures"
+    ),
+    image: "/images/Studi_1.webp",
     subtitle: "UNESCO – 1998",
     achievements: [
-      "Structural assessment completed",
-      "Traditional materials sourced",
-      "Master craftsmen engaged",
+  
+    ],
+  },
+  {
+    title: t("Seminars"),
+    status: t("Holding seminars and spreading awareness of the importance of preserving the city's heritage."),
+    description: t(
+      ""
+    ),
+    image: "/images/Studi_2.webp",
+    subtitle: t("activities.act2.subtitle"),
+    achievements: [
     ],
   },
   {
     title: t("activities.act3.title"),
-    status: "Ongoing",
+    status: t("activities.status.completed"),
     description: t("activities.act3.desc"),
-    image: "/images/Studi_2.webp",
-    subtitle: "UNESCO – 1998",
-    achievements: [
-      "5,000+ photographs digitized",
-      "3D models of key buildings",
-      "Interactive virtual tours",
-    ],
-  },
-  {
-    title: t("activities.act2.title"),
-    status: "Active",
-    description: t("activities.act2.desc"),
     image: "/images/Studi_3.webp",
     achievements: [
-      "120 apprentices trained",
-      "Partnership with local schools",
-      "Certificate program established",
+    
     ],
   },
 ];
@@ -52,16 +49,15 @@ const Activities = () => {
         {/* Hero */}
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6">
-            <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("activities.label")}</span>
+            <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("Activities")}</span>
             <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("activities.title")} <span className="gradient-text">{t("activities.title2")}</span>
+              {t("Documenting History")} <span className="gradient-text"></span>
             </h1>
             <p className="max-w-2xl text-muted-foreground text-lg leading-relaxed">
-              {t("about.description").substring(0, 150)}...
+              {t("As a stage of implementing the initiative, one of the first stages is preparing studies to collect and document information about the city. ").substring(0, 150)}
             </p>
           </div>
         </section>
-
         {/* Projects */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
@@ -80,7 +76,6 @@ const Activities = () => {
                       />
                     </div>
                   </div>
-                  
                   <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                     <span className="inline-block px-4 py-1 rounded-full text-sm font-medium bg-primary/10 text-primary mb-4">
                       {project.status}
@@ -102,7 +97,6 @@ const Activities = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

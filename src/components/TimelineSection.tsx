@@ -109,7 +109,7 @@ const TimelineSection = () => {
                           {event.year}
                         </span>
                         <p className="text-foreground/80 text-lg leading-relaxed">
-                          {event.description}
+                          
                         </p>
                       </div>
                     </div>

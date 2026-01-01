@@ -90,6 +90,17 @@ i18n
     },
   },
 
+  aboutPage: {
+  description:
+    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it. Its idea was launched by the Samhar Cultural Association in Stockholm, Sweden in February 2020, coinciding with the 30th anniversary of the liberation of Massawa from the Ethiopian occupation.",
+
+  goalTitle: "The goal of the initiative",
+
+  goalDescription:
+    "The inscription of the ancient city of Massawa (the city of urban diversity in Africa) on the World Heritage List of UNESCO.",
+},
+
+
   lng: "en",
   fallbackLng: "en",
   interpolation: {

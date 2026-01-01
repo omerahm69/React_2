@@ -79,6 +79,22 @@ en: {
   goalDescription:
     "The inscription of the ancient city of Massawa — the city of urban diversity in Africa — on the World Heritage List of UNESCO.",
 },
+aboutPage: {
+  label: "About Us",
+  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
+  description:
+    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it.",
+  goalTitle: "The Goal of the Initiative",
+  goalDescription:
+    "The inscription of the ancient city of Massawa on the UNESCO World Heritage List.",
+  mission: "Our Mission",
+  missionText: "To preserve, protect, and promote Massawa’s urban heritage.",
+  vision: "Our Vision",
+  visionText:
+    "A future where Massawa’s heritage is restored and celebrated globally.",
+  values: "Our",
+  values2: "Values",
+},
 
     
     // Activities
