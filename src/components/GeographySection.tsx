@@ -23,8 +23,15 @@ const GeographySection = () => {
               <div>
                 <p className="text-heritage-ocean font-medium text-sm tracking-wider uppercase mb-1">About Massawa</p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-tight">
-                  {t.geography.title}
+                  {t("Geographical overview of the city of Massawa ")}
                 </h2>
+                <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
+                {t("Massawa is the second most important city and the main port in Eritrea, it is located on the coast of the most important international trade lines, and it was an important historical port for several centuries. The city is located on the souther.")}
+                </p>
+                      <img src = "images/Kart_of_Massawa.webp"
+                      alt={t("geography")}
+                      className="mt-8 w-full h-64 object-cover rounded-xl shadow-elevated"/>
+                      
               </div>
             </div>
           </AnimatedSection>
@@ -35,7 +42,7 @@ const GeographySection = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-heritage-ocean/5 rounded-bl-[100px]" />
               
               <p className="text-lg md:text-xl text-foreground/80 leading-relaxed drop-cap relative z-10">
-                {t.geography.content}
+                {t("GEOGRAPHY.CONTENT")}
               </p>
 
               {/* Feature highlights */}

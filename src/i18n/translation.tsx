@@ -69,6 +69,17 @@ en: {
     "about.feature2.desc": "Working closely with local communities to ensure heritage preservation reflects and respects cultural traditions.",
     "about.feature3.title": "Cultural Documentation",
     "about.feature3.desc": "Creating comprehensive archives of oral histories, traditions, and artistic expressions of Massawa's diverse heritage.",
+
+  about: {
+  label: "About Us",
+  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
+  description:
+    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it. The idea was launched by the Samhar Cultural Association in Stockholm, Sweden in February 2020, coinciding with the 30th anniversary of the liberation of Massawa from Ethiopian occupation.",
+  goalTitle: "The Goal of the Initiative",
+  goalDescription:
+    "The inscription of the ancient city of Massawa — the city of urban diversity in Africa — on the World Heritage List of UNESCO.",
+},
+
     
     // Activities
     "activities.label": "What We Do",
@@ -169,6 +180,16 @@ en: {
     "about.feature2.desc": "العمل عن كثب مع المجتمعات المحلية لضمان أن يعكس الحفاظ على التراث التقاليد الثقافية ويحترمها.",
     "about.feature3.title": "التوثيق الثقافي",
     "about.feature3.desc": "إنشاء أرشيفات شاملة للتاريخ الشفوي والتقاليد والتعبيرات الفنية لتراث مصوع المتنوع.",
+    about: {
+  label: "من نحن",
+  title: "من المنفى إلى العودة: إعادة اكتشاف التراث العمراني لمصوع",
+  description:
+    "مبادرة مدنية إريترية تسعى إلى توثيق وحماية التراث العمراني لمدينة مصوع القديمة ونشر الوعي بأهميته...",
+  goalTitle: "هدف المبادرة",
+  goalDescription:
+    "إدراج مدينة مصوع القديمة، مدينة التنوع الحضري في إفريقيا، ضمن قائمة التراث العالمي لليونسكو.",
+},
+
     
     // Activities
     "activities.label": "ماذا نفعل",

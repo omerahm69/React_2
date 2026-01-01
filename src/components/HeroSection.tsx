@@ -15,30 +15,32 @@ export const HeroSection = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(to bottom, hsla(20, 2%, 68%, 0.60), hsla(30, 2%, 40%, 0.80)), url('./assets/Entrance_of_Old_Arab_Souk.webp')`,
+          backgroundImage: `linear-gradient(to bottom, hsla(20, 9%, 88%, 0.60), hsla(30, 2%, 40%, 0.80)), 
+          url('./assets/Entrance_of_Old_Arab_Souk.webp')`,
         }}
       />
-
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-primary/10 blur-3xl animate-float" />
-      <div className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} />
-
+      <div className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-accent/10 blur-3xl animate-float" style={{ animationDelay: "2s" }} 
+      />
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <p className="animate-fade-up text-primary font-medium tracking-[0.3em] uppercase text-sm mb-6">
           {t("hero.tagline")}
         </p>
-        
-        <h1 className="animate-fade-up font-serif font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-primary-foreground text-shadow-hero leading-none mb-8" style={{ animationDelay: "0.1s" }}>
-          <span className="gradient-text">{t("hero.title1")}</span>
+        <h2 className="animate-fade-up font-serif font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-primary-foreground text-shadow-hero leading-none mb-8" style={{ animationDelay: "0.1s" }}>
+          <span className="gradient-text">{t("Massawa Urban Heritage")}</span>
           <br />
-          <span className="text-primary-foreground">{t("hero.title2")}</span>
-        </h1>
-
-        <p className="animate-fade-up max-w-2xl mx-auto text-lg sm:text-xl text-primary-foreground/80 mb-12 leading-relaxed" style={{ animationDelay: "0.2s" }}>
-          {t("hero.description")}
-        </p>
-
+          <span className="text-primary-foreground">{t("Discover the Rich History of Eritrean's Coastal Gem")}</span>
+        </h2>
+        <div
+        className="animate-fade-up max-w-2xl mx-auto text-lg sm:text-xl text-primary-foreground/80 mb-12 leading-relaxed" style={{ animationDelay: "0.2s" }}>
+          <p className="mb-6">{t("The city is considered a mosaic carrying in its folds a mixture of residents and dialects, like all the ports in the world. The immigration and merchants coming from all countries settled in it, mixed with its residents, and set up their businesses. Everyone lived in it like an open museum that different from the rest of their surroundings. ")}
+          </p>
+            
+            <img src = "images/Old_post_office.webp" alt="Cultural heritage"/>
+          </div>
+        
         <div className="animate-fade-up flex flex-col sm:flex-row gap-4 justify-center" style={{ animationDelay: "0.3s" }}>
           <Button 
             size="lg"
@@ -55,7 +57,6 @@ export const HeroSection = () => {
           </Button>
         </div>
       </div>
-
       {/* Scroll indicator */}
       <button 
         onClick={scrollToContent}

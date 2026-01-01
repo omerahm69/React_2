@@ -20,26 +20,35 @@ const About = () => {
       <main className="pt-24">
         {/* Hero */}
         <section className="py-20 bg-card">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-6 max-w-4xl">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("about.label")}</span>
-            <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("aboutPage.story")} <span className="gradient-text">{t("aboutPage.story2")}</span>
-            </h1>
-            <div className="max-w-3xl">
+            <h2 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
+              {t("From exile to homecoming rediscovering Massawa's Urban Heritage")} </h2>
+              <p className=" text-lg text-foreground/80 leading-relaxed">
+              {t("An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it. Its idea was launched by the Samhar Cultural Association in Stockholm, Sweden in February 2020, coinciding with the 30th anniversary of the liberation of Massawa from the Ethiopian occupation."})
+              </p>
+            <h3 className=" mt-10 font-semibold gradient-text text-lg">{t("The goal of the initiative")}</h3>
+            <p className="mt-4 text-lg text-foreground/80 leading-relaxed">
+            {t("The inscription of the ancient city of Massawa (the city of urban diversity in Africa) on the World Heritage List of the United Nations Educational, Scientific and Cultural Organization (UNESCO)."})
+            </p>
+          </div>
+
+          <div className="max-w-3xl">
               <div className="drop-cap text-muted-foreground text-lg leading-relaxed">
                 {t("aboutPage.storyText")}
               </div>
             </div>
           </div>
-        </section>
+      </section>
 
         {/* Mission & Vision */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="grid md:grid-cols-2 gap-12">
               <div className="card-hover bg-card p-10 rounded-3xl">
-                <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("aboutPage.mission")} <span className="gradient-text">{t("aboutPage.mission2")}</span>
+                <h3 className="font-serif font-bold text-3xl text-foreground mb-6">
+                  {t("Stages and objectives of the initiative")} <span className="gradient-text">{t("Stages of implementing the initiative Establishment stage")}</span>
+                  <img src = "images/Old_post_office.webp" alt="Cultural heritage"/>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   {t("aboutPage.missionText")}
@@ -47,7 +56,7 @@ const About = () => {
               </div>
               <div className="card-hover bg-card p-10 rounded-3xl">
                 <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("aboutPage.vision")} <span className="gradient-text">{t("aboutPage.vision2")}</span>
+                  {t("")} <span className="gradient-text">{t("")}</span>
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
                   {t("aboutPage.visionText")}
@@ -79,7 +88,6 @@ const About = () => {
           </div>
         </section>
       </main>
-
       <Footer />
     </div>
   );

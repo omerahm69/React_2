@@ -23,7 +23,7 @@ const Activities = () => {
     title: t("activities.act3.title"),
     status: "Ongoing",
     description: t("activities.act3.desc"),
-    image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
+    image: "/images/Studi_2.webp",
     subtitle: "UNESCO – 1998",
     achievements: [
       "5,000+ photographs digitized",
@@ -35,7 +35,7 @@ const Activities = () => {
     title: t("activities.act2.title"),
     status: "Active",
     description: t("activities.act2.desc"),
-    image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
+    image: "/images/Studi_3.webp",
     achievements: [
       "120 apprentices trained",
       "Partnership with local schools",

@@ -2,33 +2,100 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
 i18n
-  .use(initReactI18next)
+.use(initReactI18next)
   .init({
-    resources: {
-      en: {
-        translation: {
-          "NAV.HOME": "Home",
-          "NAV.ABOUT": "About",
-          "NAV.ACTIVITIES": "Activities",
-          "NAV.HERITAGE": "Heritage",
-          "NAV.CONTACT": "Contact",
-        },
-      },
-      ti: {
-        translation: {
-          "NAV.HOME": "መበል",
-          "NAV.ABOUT": "ብዛዕባ",
-          "NAV.ACTIVITIES": "ንጥፈታት",
-          "NAV.HERITAGE": "ቅርሲ",
-          "NAV.CONTACT": "ርክብ",
+  resources: {
+    en: {
+      translation: {
+        nav:  {
+            "home": "Home",
+            "about": "About",
+            "Activities": "Activities",
+            "Heritage": "Heritage",
+            "Contact": "Contact",
+},
+    
+        geography: {
+  label: "About Massawa",
+  title: "Geographical Overview of the City of Massawa",
+  description:
+    "Massawa is the second most important city and the main port of Eritrea. It lies on the Red Sea coast along one of the world’s most important international trade routes and has served as a historic port for centuries. The city is located on the southwestern coast of the Red Sea near the Gulf of Zula.",
+  imageAlt: "Geographical map of Massawa",
+},
+      
+  hero: {
+  tagline: "Urban Heritage",
+  title: "Massawa",
+  subtitle: "Discover the Rich History of Eritrea’s Coastal Gem",
+  description:
+    "The city is considered a mosaic carrying a mixture of residents and dialects, like all ports of the world. Merchants and immigrants from many lands settled here, blending with local communities and shaping a living open-air museum unlike its surroundings.",
+  imageAlt: "Old Post Office of Massawa",
+  ctaPrimary: "Explore Heritage",
+  ctaSecondary: "Learn More",
+},
+
+
+        timeline: {
+          title: "The Timeline of Massawa",
+          events: [
+            {
+              year: "615",
+              description:
+                "The migration of Companions of the Prophet to Abyssinia via the port of Massawa.",
+            },
+            {
+              year: "700",
+              description: "Islamic-style emirates in East Africa.",
+            },
+          ],
+        
         },
       },
     },
-    lng: "en",          // default language
-    fallbackLng: "en",
-    interpolation: {
-      escapeValue: false,
+
+    ti: {
+      translation: {
+        nav: {
+          home: "መበል",
+          about: "ብዛዕባ",
+          activities: "ንጥፈታት",
+          heritage: "ቅርሲ",
+          contact: "ርክብ",
+        },
+
+        geography: {
+  label: "ብዛዕባ ማሳዋ",
+  title: "ጂኦግራፊያዊ ሓፈሻ ናይ ከተማ ማሳዋ",
+  description:
+    "ማሳዋ ካልኣይቲ ኣገዳሲት ከተማ ኤርትራን ዋና ወደብን እያ። ኣብ ጎን ባሕሪ ቀይሕ ትርከብ እና ንብዙሕ ዘመናት ኣገዳሲ ታሪኻዊ ወደብ ነይራ።",
+  imageAlt: "ካርታ ማሳዋ",
+},
+
+
+        timeline: {
+          title: "ዝርዝር ታሪኽ ማሳዋ",
+          events: [
+            {
+              year: "615",
+              description:
+                "ምውጻእ ኣስሓብ ናይ ነቢይ ናብ ኣቢሲንያ ብመንገዲ ማሳዋ።",
+            },
+            {
+              year: "700",
+              description: "እስላማዊ ኢማራት ኣብ ምብራቕ ኣፍሪቃ።",
+            },
+          ],
+        },
+      },
     },
-  });
+  },
+
+  lng: "en",
+  fallbackLng: "en",
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;
+        
