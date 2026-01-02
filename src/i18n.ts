@@ -53,6 +53,13 @@ i18n
       },
     },
 
+    translation: {
+  heritage: {
+    title: "Urban Heritage of Massawa",
+    description: "Massawa’s architecture reflects centuries of cultural exchange...",
+  },
+},
+
     ti: {
       translation: {
         nav: {

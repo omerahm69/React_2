@@ -1,76 +1,77 @@
-import { useLanguage } from "../i18n/LanguageContext";
+import { useLanguage } from '@/i18n/LanguageContext';
+import { Building2, Landmark, Users } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
 
-function Heritage() {
+const HeritageSection = () => {
   const { t, dir } = useLanguage();
+  const heritage = t("heritage", { returnObjects: true }) as {
+  title: string;
+  description: string;
+};
 
-  const images = [
-    "/images/heritage/.webp",
-    "/images/heritage/massawa2.webp",
-    "/images/heritage/massawa3.webp",
-    "/images/heritage/massawa4.webp",
-    "/images/heritage/massawa5.webp",
-    "/images/heritage/massawa6.webp",
-  ];
 
   return (
-    <main>
-      {/* Hero Section */}
-      <section
-        className="h-[60vh] bg-cover bg-center flex items-center justify-center"
-        style={{
-          backgroundImage:
-            "url('/images/heritage/.webp')",
-        }}
-      >
-        <div className="bg-black/50 p-6 rounded-lg">
-          <h1 className="text-white text-4xl md:text-5xl font-bold text-center">
-            {t("heritage")}
-          </h1>
+    <section id="heritage" className="py-24 md:py-36 relative overflow-hidden">
+      {/* Enhanced background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-heritage-sand/50 via-background to-heritage-ocean/5" />
+      
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 opacity-[0.03]" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+      }} />
+
+      <div className="container mx-auto px-4 relative">
+        <div className="max-w-6xl mx-auto">
+          <AnimatedSection animation="fade-up">
+            <div className="flex flex-col items-center text-center mb-16">
+              <div className="w-20 h-20 bg-gradient-to-br from-primary to-primary/70 rounded-3xl flex items-center justify-center shadow-elevated mb-6 rotate-3 hover:rotate-0 transition-transform duration-300">
+                <Building2 className="w-10 h-10 text-primary-foreground" />
+              </div>
+              <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">Urban Heritage</p>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-tight max-w-4xl">
+                {t("heritage.title")}
+              </h2>
+            </div>
+          </AnimatedSection>
+
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+            <AnimatedSection animation="slide-left" delay={100}>
+              <div className="group card-gradient rounded-3xl p-8 lg:p-10 shadow-elevated border border-border/50 hover:shadow-soft transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="w-12 h-12 bg-heritage-coral/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Landmark className="w-6 h-6 text-heritage-coral" />
+                </div>
+                <p className="text-lg text-foreground/80 leading-relaxed drop-cap">
+                  {t("heritage.content1")}
+                </p>
+              </div>
+            </AnimatedSection>
+            
+            <AnimatedSection animation="slide-right" delay={200}>
+              <div className="group card-gradient rounded-3xl p-8 lg:p-10 shadow-elevated border border-border/50 hover:shadow-soft transition-all duration-300 hover:-translate-y-1 h-full">
+                <div className="w-12 h-12 bg-heritage-ocean/10 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <Users className="w-6 h-6 text-heritage-ocean" />
+                </div>
+                <p className="text-lg text-foreground/80 leading-relaxed">
+                  {t("heritage.content2")}
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
+
+          {/* Enhanced Decorative Elements */}
+          <AnimatedSection animation="fade-in" delay={400}>
+            <div className="mt-20 flex justify-center items-center gap-3">
+              <div className="w-16 h-px bg-gradient-to-r from-transparent to-heritage-coral/50" />
+              <div className="w-3 h-3 bg-heritage-coral rounded-full animate-pulse" />
+              <div className="w-3 h-3 bg-heritage-gold rounded-full animate-pulse" style={{ animationDelay: '0.2s' }} />
+              <div className="w-3 h-3 bg-heritage-ocean rounded-full animate-pulse" style={{ animationDelay: '0.4s' }} />
+              <div className="w-16 h-px bg-gradient-to-l from-transparent to-heritage-ocean/50" />
+            </div>
+          </AnimatedSection>
         </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <p className="text-lg text-gray-700 leading-relaxed text-center">
-          {t("heritageIntro")}
-        </p>
-      </section>
-
-      {/* Features Section */}
-      <section className="max-w-6xl mx-auto px-4 py-12 grid gap-6 md:grid-cols-3">
-        <Feature
-          title={t("heritageFeature1Title")}
-          text={t("heritageFeature1Text")}
-        />
-        <Feature
-          title={t("heritageFeature2Title")}
-          text={t("heritageFeature2Text")}
-        />
-        <Feature
-          title={t("heritageFeature3Title")}
-          text={t("heritageFeature3Text")}
-        />
-      </section>
-
-      {/* Gallery */}
-      <section className="max-w-7xl mx-auto px-4 py-12">
-        <h2 className="text-3xl font-bold mb-6 text-center">
-          {t("gallery")}
-        </h2>
-
-        <Gallery images={images} />
-      </section>
-    </main>
+      </div>
+    </section>
   );
-}
+};
 
-function Feature({ title, text }) {
-  return (
-    <div className="bg-white shadow-md rounded-xl p-6 text-center">
-      <h3 className="font-semibold text-xl mb-2">{title}</h3>
-      <p className="text-gray-600">{text}</p>
-    </div>
-  );
-}
-
-export default Heritage;
+export default HeritageSection;

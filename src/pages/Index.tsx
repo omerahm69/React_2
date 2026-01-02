@@ -1,9 +1,9 @@
 import GeographySection from "@/components/GeographySection";
-import { HeritageHighlight } from "@/components/HeritageHighligt";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
 import TimelineSection from "@/components/TimelineSection";
 import FooterSection from "../components/FooterSection";
+import HeritageSection from "../components/Heritage";
 
 const Index = () => {
   return (
@@ -14,7 +14,7 @@ const Index = () => {
         <HeroSection />
         <GeographySection />
         <TimelineSection />
-        <HeritageHighlight />
+        <HeritageSection />
       </main>
       <FooterSection/>
     </div>
