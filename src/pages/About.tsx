@@ -1,16 +1,16 @@
-import { FooterSection as Footer } from "@/components/FooterSection";
+import { FooterSection } from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Award, Heart, Target, Users } from "lucide-react";
 
 const About = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: Heart, title: t("aboutPage.passion"), description: t("aboutPage.passionDesc") },
-    { icon: Users, title: t("aboutPage.community"), description: t("aboutPage.communityDesc") },
-    { icon: Target, title: t("aboutPage.excellence"), description: t("aboutPage.excellenceDesc") },
-    { icon: Award, title: t("aboutPage.integrity"), description: t("aboutPage.integrityDesc") },
+    { icon: Heart, title: t("Passion"), description: t("Deep commitment to preserving cultural identity and architectural beauty.") },
+    { icon: Users, title: t("Community"), description: t("Engaging local stakeholders as partners in heritage preservation.") },
+    { icon: Target, title: t("Excellence"), description: t("Maintaining the highest standards in restoration and documentation.") },
+    { icon: Award, title: t("Integrity"), description: t("Transparent operations and ethical practices in all endeavors.") },
   ];
 
   return (
@@ -22,7 +22,7 @@ const About = () => {
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6 max-w-4xl">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">
-              {t("aboutPage.label")}
+              {t("Our Story")}
             </span>
 
             <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
@@ -30,15 +30,15 @@ const About = () => {
             </h1>
 
             <p className="text-lg text-foreground/80 leading-relaxed">
-              {t("Stages and objectives of the initiative")}
+              {t("Founded in 2020, Urban Heritage emerged from a collective vision to safeguard Massawa's extraordinary architectural legacy. What began as a small group of passionate historians and architects has grown into a dedicated organization working across multiple fronts to preserve the ")}
             </p>
 
             <h3 className="mt-10 font-semibold gradient-text text-lg">
-              {t("Stages of implementing the initiative Establishment stage")}
+              {t("The goal of the initiative")}
             </h3>
 
             <p className="mt-4 text-lg text-foreground/80 leading-relaxed">
-              {t("The goal of the initiative")}
+              {t("Stages of implementing the initiative Establishment stage")}
             </p>
           </div>
         </section>
@@ -49,19 +49,19 @@ const About = () => {
             <div className="grid md:grid-cols-2 gap-12">
               <div className="card-hover bg-card p-10 rounded-3xl">
                 <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("")}
+                  {t("Our Vision")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {t("aboutPage.missionText")}
+                  {t("A future where Massawa's heritage sites are fully restored, accessible to all, and serve as a source of pride, education, and sustainable economic development for local communities.")}
                 </p>
               </div>
 
               <div className="card-hover bg-card p-10 rounded-3xl">
                 <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("aboutPage.vision")}
+                  {t("Our Mission")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {t("aboutPage.visionText")}
+                  {t("To preserve, protect, and promote the architectural and cultural heritage of Massawa through professional restoration, comprehensive documentation, community education, and international collaboration")}
                 </p>
               </div>
             </div>
@@ -73,8 +73,8 @@ const About = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-serif font-bold text-4xl sm:text-5xl text-foreground">
-                {t("aboutPage.values")}{" "}
-                <span className="gradient-text">{t("aboutPage.values2")}</span>
+                {t("")}{"Our Values "}
+                <span className="gradient-text">{t("")}</span>
               </h2>
             </div>
 
@@ -96,8 +96,7 @@ const About = () => {
           </div>
         </section>
       </main>
-
-      <Footer />
+      <FooterSection/>
     </div>
   );
 };

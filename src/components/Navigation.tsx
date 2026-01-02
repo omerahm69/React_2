@@ -4,11 +4,11 @@ import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
+import { useLanguage } from "../i18n/LanguageContext";
 
 export const Navigation = () => {
-  const { t } = useTranslation();
+  const { t, dir} = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 

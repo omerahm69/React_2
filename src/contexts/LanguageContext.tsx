@@ -1,59 +1,27 @@
-export type Language = 'en' | 'ar' | 'ti';
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
-export const translations = {
+type Language = "en" | "ar" | "ti";
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+  dir: "ltr" | "rtl";
+}
+
+const translations: Record<Language, Record<string, string>> = {
   en: {
-    nav: {
-      home: 'Home',
-      aboutUs: 'About Us',
-      urbanHeritage: 'Urban Heritage of Massawa',
-      activities: 'Our Activities',
-      contact: 'Contact Us',
-    },
-    hero: {
-      title: 'Welcome to AKAN',
-      subtitle: 'Massawa Urban Heritage',
-      description: 'Discover the Rich History of Eritrea\'s Coastal Gem',
-    },
-    geography: {
-      title: 'Geographical Overview of Massawa',
-      content: 'Massawa is the second most important city and the main port in Eritrea, located on the coast of the Red Sea, one of the most important international trade lines. It was an important historical port for several centuries. The city is located on the southwestern coast of the Red Sea at the northern end of the Gulf of Zula and is followed by a group of islands known as the Dahlak Archipelago.',
-    },
-    heritage: {
-      title: 'Massawa Urban Heritage: Discover the Rich History of Eritrea\'s Coastal Gem',
-      content1: 'The city is considered a mosaic carrying in its folds a mixture of residents and dialects, like all the ports in the world.',
-      content2: 'The immigrants and merchants coming from all countries settled in it, mixed with its residents, and set up their businesses. Everyone lived in it like an open museum that differed from the rest of their surroundings.',
-    },
-    "timeline": {
-      "title": 'The Timeline of Massawa',
-      "events": [
-        { year: '615', description: 'The migration of Companions of the Prophet to the land of Abyssinia via the port of Massawa' },
-        { year: '700', description: 'Islamic-style emirates in East Africa' },
-        { year: '1500', description: 'The era of marine discovery & the Portuguese occupation' },
-        { year: '1557', description: 'The Islamic Ottoman Eyalet of Abyssinia' },
-        { year: '1865', description: 'The Egyptian Khedive Administration' },
-        { year: '1885', description: 'Italian colonial period begins' },
-        { year: '1941', description: 'British administration period' },
-        { year: '1952', description: 'Federation with Ethiopia' },
-        { year: '1991', description: 'Liberation and independence of Eritrea' },
-      ],
-    },
-    footer: {
-      rights: 'All rights reserved',
-      organization: 'AKAN - Massawa Urban Heritage Foundation',
-    },
-  },
-en: {
     // Navigation
     "nav.home": "Home",
     "nav.about": "About Us",
     "nav.activities": "Our Activities",
-    "nav.heritage": "Urban Heritage",
+    "nav.heritage": "Heritage of Massawa",
     "nav.contact": "Contact",
     
     // Hero
     "hero.tagline": "Preserving History • Building Future",
-    "hero.title1": "Massawa",
-    "hero.title2": "Urban Heritage",
+    "hero.title1": "Urban",
+    "hero.title2": "Heritage",
     "hero.description": "Dedicated to the preservation, documentation, and celebration of Massawa's extraordinary architectural and cultural heritage.",
     "hero.cta1": "Explore Our Mission",
     "hero.cta2": "View Heritage Sites",
@@ -69,33 +37,6 @@ en: {
     "about.feature2.desc": "Working closely with local communities to ensure heritage preservation reflects and respects cultural traditions.",
     "about.feature3.title": "Cultural Documentation",
     "about.feature3.desc": "Creating comprehensive archives of oral histories, traditions, and artistic expressions of Massawa's diverse heritage.",
-
-  about: {
-  label: "About Us",
-  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
-  description:
-    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it. The idea was launched by the Samhar Cultural Association in Stockholm, Sweden in February 2020, coinciding with the 30th anniversary of the liberation of Massawa from Ethiopian occupation.",
-  goalTitle: "The Goal of the Initiative",
-  goalDescription:
-    "The inscription of the ancient city of Massawa — the city of urban diversity in Africa — on the World Heritage List of UNESCO.",
-},
-aboutPage: {
-  label: "About Us",
-  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
-  description:
-    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it.",
-  goalTitle: "The Goal of the Initiative",
-  goalDescription:
-    "The inscription of the ancient city of Massawa on the UNESCO World Heritage List.",
-  mission: "Our Mission",
-  missionText: "To preserve, protect, and promote Massawa’s urban heritage.",
-  vision: "Our Vision",
-  visionText:
-    "A future where Massawa’s heritage is restored and celebrated globally.",
-  values: "Our",
-  values2: "Values",
-},
-
     
     // Activities
     "activities.label": "What We Do",
@@ -196,30 +137,6 @@ aboutPage: {
     "about.feature2.desc": "العمل عن كثب مع المجتمعات المحلية لضمان أن يعكس الحفاظ على التراث التقاليد الثقافية ويحترمها.",
     "about.feature3.title": "التوثيق الثقافي",
     "about.feature3.desc": "إنشاء أرشيفات شاملة للتاريخ الشفوي والتقاليد والتعبيرات الفنية لتراث مصوع المتنوع.",
-    about: {
-  label: "من نحن",
-  title: "من المنفى إلى العودة: إعادة اكتشاف التراث العمراني لمصوع",
-  description:
-    "مبادرة مدنية إريترية تسعى إلى توثيق وحماية التراث العمراني لمدينة مصوع القديمة ونشر الوعي بأهميته...",
-  goalTitle: "هدف المبادرة",
-  goalDescription:
-    "إدراج مدينة مصوع القديمة، مدينة التنوع الحضري في إفريقيا، ضمن قائمة التراث العالمي لليونسكو.",
-},
-{
-  "timeline": {
-    "title": "الخط الزمني لمصوع",
-    "events": [
-      {
-        "year": "615",
-        "description": "هجرة الصحابة إلى الحبشة عبر مصوع"
-      },
-      {
-        "year": "700",
-        "description": "قيام إمارات ذات طابع إسلامي في شرق إفريقيا"
-      }
-    ]
-  }
-},
     
     // Activities
     "activities.label": "ماذا نفعل",
@@ -395,15 +312,37 @@ aboutPage: {
   },
 };
 
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>(() => {
+    const saved = localStorage.getItem("language");
+    return (saved as Language) || "en";
+  });
 
+  const dir = language === "ar" ? "rtl" : "ltr";
 
-export const languageNames: Record<Language, string> = {
-  en: 'English',
-  ar: 'العربية',
-  ti: 'ትግርኛ',
+  useEffect(() => {
+    localStorage.setItem("language", language);
+    document.documentElement.dir = dir;
+    document.documentElement.lang = language;
+  }, [language, dir]);
+
+  const t = (key: string): string => {
+    return translations[language][key] || translations.en[key] || key;
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage, t, dir }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
 
-export const isRTL = (lang: Language): boolean => lang === 'ar';
-
-
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within a LanguageProvider");
+  }
+  return context;
+};

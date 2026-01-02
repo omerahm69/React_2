@@ -3,7 +3,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { Link } from "react-router-dom";
 
 export const HeritageHighlight = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">

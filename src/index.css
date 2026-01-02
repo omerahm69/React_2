@@ -121,12 +121,34 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+/* RTL font support */
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  }
+
+  [lang="ti"] body {
+    font-family: 'Noto Sans Ethiopic', 'Inter', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif;
+    font-family: 'Crimson Pro', serif;
+    @apply font-medium tracking-tight;
   }
 }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, 
+  [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Noto Sans Arabic', serif;
+  }
+
+  [lang="ti"] h1, [lang="ti"] h2, [lang="ti"] h3,
+  [lang="ti"] h4, [lang="ti"] h5, [lang="ti"] h6 {
+    font-family: 'Noto Sans Ethiopic', serif;
+  }
+
 
 @layer components {
   .gradient-text {

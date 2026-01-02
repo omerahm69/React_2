@@ -1,7 +1,7 @@
-import { useTranslation } from "react-i18next";
+import { useLanguage } from "../i18n/LanguageContext";
 
 function Heritage() {
-  const { t } = useTranslation();
+  const { t, dir } = useLanguage();
 
   const images = [
     "/images/heritage/.webp",

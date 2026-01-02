@@ -1,4 +1,3 @@
-import { FooterSection as Footer } from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -7,6 +6,8 @@ import { toast } from "@/hooks/use-toast";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
+import FooterSection from "../components/FooterSection";
+
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -35,8 +36,10 @@ const Contact = () => {
           <div className="container mx-auto px-6">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("contact.label")}</span>
             <h3 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("Mailing List Sign up")} <span className="gradient-text">{t("Welcome to join us")}</span>
-            </h3>
+              {t("Welcome to join us")} </h3>
+              
+              <span className="gradient-text">{t("Have questions about our work or want to get involved? We'd love to hear from youss")}</span>
+            
             <p className="max-w-2xl text-muted-foreground text-lg leading-relaxed">
             {t("The initiative is open to ideas and further initiatives to spread out the goals of the initiative, to the whole Eritrean diaspora. Therefore, we encourage all Eritreans to get on board with us to achieve our goals. The first step is to be with us on our mailing list.Get news about the initiative sent to your own box and leave your message by suggestions you have for improvement")}
             </p>
@@ -50,7 +53,7 @@ const Contact = () => {
               {/* Contact Info */}
               <div>
                 <h2 className="font-serif font-bold text-3xl text-foreground mb-8">
-                  {t("contact.connect")} <span className="gradient-text">{t("contact.connect2")}</span>
+                  {t("")} <span className="gradient-text">{t("")}</span>
                 </h2>
                 
                 <div className="space-y-6">
@@ -72,7 +75,7 @@ const Contact = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-foreground mb-2">{t("Nsame")}</label>
+                      <label className="block text-sm font-medium text-foreground mb-2">{t("Name")}</label>
                       <Input 
                         value={formData.name}
                         onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -119,7 +122,7 @@ const Contact = () => {
                     size="lg"
                     className="btn-premium w-full text-primary-foreground py-6 text-base font-semibold rounded-full"
                   >
-                    <span className="relative z-10">{t("contact.form.send")}</span>
+                    <span className="relative z-10">{t("Send")}</span>
                   </Button>
                 </form>
               </div>
@@ -127,7 +130,7 @@ const Contact = () => {
           </div>
         </section>
       </main>
-      <Footer />
+      <FooterSection/>
     </div>
   );
 };
