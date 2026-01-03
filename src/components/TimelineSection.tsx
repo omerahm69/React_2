@@ -133,7 +133,8 @@ const TimelineSection = () => {
 
 export default TimelineSection;*/
 
-import { useLanguage } from "@/contexts/LanguageContext";
+
+import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
@@ -151,12 +152,12 @@ type TimelineData = {
 const TimelineSection = () => {
   const { t, dir } = useLanguage();
 
-  // ✅ Safely read the whole timeline object
+  //  Safely read the whole timeline object
   const timeline = t("timeline", {
     returnObjects: true,
   }) as TimelineData;
 
-  // ✅ Guard against undefined / wrong shapes
+  //  Guard against undefined / wrong shapes
   const events: TimelineEvent[] = Array.isArray(timeline?.events)
     ? timeline.events
     : [];

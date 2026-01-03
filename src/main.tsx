@@ -1,5 +1,5 @@
 
-import { LanguageProvider } from "@/contexts/LanguageContext";
+import { LanguageProvider } from "@/i18n/LanguageContext";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";

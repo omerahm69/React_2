@@ -1,4 +1,5 @@
-import { useLanguage } from "@/contextsLanguageContext";
+
+import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 

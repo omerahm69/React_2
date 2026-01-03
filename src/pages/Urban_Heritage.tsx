@@ -1,6 +1,7 @@
 import { FooterSection as Footer } from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
-import { useLanguage } from "@/contexts/LanguageContext";
+
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Heritage = () => {
   const { t } = useLanguage();

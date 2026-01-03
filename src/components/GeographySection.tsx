@@ -1,5 +1,6 @@
 import AnimatedSection from '@/components/AnimatedSection';
-import { useLanguage } from '@/contexts/LanguageContext';
+
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Anchor, Compass, MapPin } from 'lucide-react';
 
 const GeographySection = () => {

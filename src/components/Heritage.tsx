@@ -1,4 +1,5 @@
-import { useLanguage } from '@/contexts/LanguageContext';
+
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Building2, Landmark, Users } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 

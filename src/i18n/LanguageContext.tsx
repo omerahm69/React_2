@@ -1,37 +1,59 @@
-import i18n from "@/i18n";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
-export type Language = "en" | "ar" | "ti";
+type Language = "en" | "ar" | "ti";
 
 interface LanguageContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
-  t: typeof i18n.t;
+  t: (key: string) => string;
   dir: "ltr" | "rtl";
 }
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
 
-export const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
-    return (saved as Language) || "en";
-  });
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.activities": "Our Activities",
+    "nav.heritage": "Heritage of Massawa",
+    "nav.contact": "Contact",
+  },
+  ar: {
+    "nav.home": "الرئيسية",
+    "nav.about": "من نحن",
+    "nav.activities": "أنشطتنا",
+    "nav.heritage": "تراث مصوع",
+    "nav.contact": "اتصل بنا",
+  },
+  ti: {
+    "nav.home": "መበገሲ",
+    "nav.about": "ብዛዕባና",
+    "nav.activities": "ንጥፈታትና",
+    "nav.heritage": "ሃርቲጅ ማጻዋ",
+    "nav.contact": "ርኸቡና",
+  },
+};
 
-  const dir: "ltr" | "rtl" = language === "ar" ? "rtl" : "ltr";
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
 
   useEffect(() => {
-    i18n.changeLanguage(language);
-    localStorage.setItem("language", language);
-    document.documentElement.dir = dir;
     document.documentElement.lang = language;
-  }, [language, dir]);
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  }, [language]);
+
+  const t = (key: string) => {
+    return translations[language][key] ?? key;
+  };
 
   const value: LanguageContextType = {
     language,
     setLanguage,
-    t: i18n.t.bind(i18n),
-    dir,
+    t,
+    dir: language === "ar" ? "rtl" : "ltr",
   };
 
   return (
@@ -48,6 +70,81 @@ export const useLanguage = () => {
   }
   return context;
 };
+
+
+/*import { createContext } from "react";
+
+type Language = "en" | "ar" | "ti";
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+  dir: "ltr" | "rtl";
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.activities": "Our Activities",
+    "nav.heritage": "Heritage of Massawa",
+    "nav.contact": "Contact",
+  },
+  ar: {
+    "nav.home": "الرئيسية",
+    "nav.about": "من نحن",
+    "nav.activities": "أنشطتنا",
+    "nav.heritage": "تراث مصوع",
+    "nav.contact": "اتصل بنا",
+  },
+  ti: {
+    "nav.home": "መበገሲ",
+    "nav.about": "ብዛዕባና",
+    "nav.activities": "ንጥፈታትና",
+    "nav.heritage": "ሃርቲጅ ማጻዋ",
+    "nav.contact": "ርኸቡና",
+  },
+};
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  }, [language]);
+
+  const t = (key: string) => {
+    return translations[language][key] ?? key;
+  };
+
+  const value: LanguageContextType = {
+    language,
+    setLanguage,
+    t,
+    dir: language === "ar" ? "rtl" : "ltr",
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used inside LanguageProvider");
+  }
+  return context;
+};
+
 
 
 const translations: Record<Language, Record<string, string>> = {
@@ -351,7 +448,9 @@ const translations: Record<Language, Record<string, string>> = {
     "aboutPage.integrity": "ቅንዕና",
     "aboutPage.integrityDesc": "ግሉጽ ስራሓትን ስነ-ምግባራዊ ተግባራትን ኣብ ኩሉ ጻዕርታት።",
   },
-};
+};*/
+
+
 
 
 

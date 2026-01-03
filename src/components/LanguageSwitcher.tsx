@@ -5,7 +5,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useLanguage } from "@/contexts/LanguageContext";
+
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Globe } from "lucide-react";
 
 const languages = [
