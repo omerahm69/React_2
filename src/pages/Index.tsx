@@ -1,9 +1,11 @@
-import { AboutSection } from "@/components/AboutSection";
-import { ActivitiesSection } from "@/components/ActivitiesSection";
-import { FooterSection as Footer } from "@/components/FooterSection";
-import { HeritageHighlight } from "@/components/HeritageHighligt";
+import GeographySection from "@/components/GeographySection";
 import { HeroSection } from "@/components/HeroSection";
 import { Navigation } from "@/components/Navigation";
+import TimelineSection from "@/components/TimelineSection";
+import FooterSection from "../components/FooterSection";
+import HeritageSection from "../components/Heritage";
+
+
 
 const Index = () => {
   return (
@@ -12,11 +14,11 @@ const Index = () => {
       
       <main>
         <HeroSection />
-        <AboutSection />
-        <ActivitiesSection />
-        <HeritageHighlight />
+        <GeographySection />
+        <TimelineSection />
+        <HeritageSection />
       </main>
-      <Footer />
+      <FooterSection/>
     </div>
   );
 };

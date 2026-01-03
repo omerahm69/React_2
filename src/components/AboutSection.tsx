@@ -3,7 +3,7 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { BookOpen, Building2, Users } from "lucide-react";
 
 export const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
   
   const features = [
     {
@@ -57,20 +57,19 @@ export const AboutSection = () => {
               ))}
             </div>
           </div>
-
           {/* Image Grid */}
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-4">
               <div className="card-hover rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=800" 
+                  src="/images/Torino_hotell.webp"
                   alt="Historic architecture"
                   className="w-full h-48 object-cover"
                 />
               </div>
               <div className="card-hover rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1553913861-c0fddf2619ee?q=80&w=800" 
+                  src="/images/Hamal_masjid.webp"
                   alt="Cultural heritage"
                   className="w-full h-64 object-cover"
                 />
@@ -79,15 +78,15 @@ export const AboutSection = () => {
             <div className="space-y-4 pt-8">
               <div className="card-hover rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=800" 
+                  src="/images/New_Saraia_palace.webp" 
                   alt="Historic doorway"
                   className="w-full h-64 object-cover"
                 />
               </div>
               <div className="card-hover rounded-2xl overflow-hidden">
                 <img 
-                  src="https://images.unsplash.com/photo-1544376798-76e7e7eb5c78?q=80&w=800" 
-                  alt="Ancient ruins"
+                  src="/images/Entrance_of_Old_Arab_Souk.webp"
+                  alt="Entrance of Old Arab Souk"
                   className="w-full h-48 object-cover"
                 />
               </div>

@@ -1,28 +1,29 @@
+
 import { useLanguage } from "@/i18n/LanguageContext";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const ActivitiesSection = () => {
-  const { t } = useLanguage();
+  const { t, dir} = useLanguage();
 
   const activities = [
     {
       number: "01",
-      title: t("activities.act1.title"),
-      description: t("activities.act1.desc"),
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=800",
+      title: t("Studies"),
+      description: t("Three studies were prepared, after reviewing previous studies. A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998"),
+      image: "/images/Studi_1.webp",
     },
     {
       number: "02",
       title: t("activities.act2.title"),
       description: t("activities.act2.desc"),
-      image: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800",
+      image: "/images/Studi_2.webp",
     },
     {
       number: "03",
       title: t("activities.act3.title"),
       description: t("activities.act3.desc"),
-      image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=800",
+      image: "/images/Studi_3.webp"
     },
   ];
 

@@ -23,9 +23,9 @@ export const translations = {
       content1: 'The city is considered a mosaic carrying in its folds a mixture of residents and dialects, like all the ports in the world.',
       content2: 'The immigrants and merchants coming from all countries settled in it, mixed with its residents, and set up their businesses. Everyone lived in it like an open museum that differed from the rest of their surroundings.',
     },
-    timeline: {
-      title: 'The Timeline of Massawa',
-      events: [
+    "timeline": {
+      "title": 'The Timeline of Massawa',
+      "events": [
         { year: '615', description: 'The migration of Companions of the Prophet to the land of Abyssinia via the port of Massawa' },
         { year: '700', description: 'Islamic-style emirates in East Africa' },
         { year: '1500', description: 'The era of marine discovery & the Portuguese occupation' },
@@ -69,6 +69,33 @@ en: {
     "about.feature2.desc": "Working closely with local communities to ensure heritage preservation reflects and respects cultural traditions.",
     "about.feature3.title": "Cultural Documentation",
     "about.feature3.desc": "Creating comprehensive archives of oral histories, traditions, and artistic expressions of Massawa's diverse heritage.",
+
+  about: {
+  label: "About Us",
+  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
+  description:
+    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it. The idea was launched by the Samhar Cultural Association in Stockholm, Sweden in February 2020, coinciding with the 30th anniversary of the liberation of Massawa from Ethiopian occupation.",
+  goalTitle: "The Goal of the Initiative",
+  goalDescription:
+    "The inscription of the ancient city of Massawa — the city of urban diversity in Africa — on the World Heritage List of UNESCO.",
+},
+aboutPage: {
+  label: "About Us",
+  title: "From Exile to Homecoming: Rediscovering Massawa’s Urban Heritage",
+  description:
+    "An Eritrean civil initiative that seeks to document and protect the urban heritage of the ancient city of Massawa and spread awareness about it.",
+  goalTitle: "The Goal of the Initiative",
+  goalDescription:
+    "The inscription of the ancient city of Massawa on the UNESCO World Heritage List.",
+  mission: "Our Mission",
+  missionText: "To preserve, protect, and promote Massawa’s urban heritage.",
+  vision: "Our Vision",
+  visionText:
+    "A future where Massawa’s heritage is restored and celebrated globally.",
+  values: "Our",
+  values2: "Values",
+},
+
     
     // Activities
     "activities.label": "What We Do",
@@ -169,6 +196,30 @@ en: {
     "about.feature2.desc": "العمل عن كثب مع المجتمعات المحلية لضمان أن يعكس الحفاظ على التراث التقاليد الثقافية ويحترمها.",
     "about.feature3.title": "التوثيق الثقافي",
     "about.feature3.desc": "إنشاء أرشيفات شاملة للتاريخ الشفوي والتقاليد والتعبيرات الفنية لتراث مصوع المتنوع.",
+    about: {
+  label: "من نحن",
+  title: "من المنفى إلى العودة: إعادة اكتشاف التراث العمراني لمصوع",
+  description:
+    "مبادرة مدنية إريترية تسعى إلى توثيق وحماية التراث العمراني لمدينة مصوع القديمة ونشر الوعي بأهميته...",
+  goalTitle: "هدف المبادرة",
+  goalDescription:
+    "إدراج مدينة مصوع القديمة، مدينة التنوع الحضري في إفريقيا، ضمن قائمة التراث العالمي لليونسكو.",
+},
+{
+  "timeline": {
+    "title": "الخط الزمني لمصوع",
+    "events": [
+      {
+        "year": "615",
+        "description": "هجرة الصحابة إلى الحبشة عبر مصوع"
+      },
+      {
+        "year": "700",
+        "description": "قيام إمارات ذات طابع إسلامي في شرق إفريقيا"
+      }
+    ]
+  }
+},
     
     // Activities
     "activities.label": "ماذا نفعل",

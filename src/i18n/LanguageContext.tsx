@@ -1,4 +1,3 @@
-
 import { createContext, ReactNode, useContext, useEffect, useState } from "react";
 
 type Language = "en" | "ar" | "ti";
@@ -9,6 +8,144 @@ interface LanguageContextType {
   t: (key: string) => string;
   dir: "ltr" | "rtl";
 }
+
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.activities": "Our Activities",
+    "nav.heritage": "Heritage of Massawa",
+    "nav.contact": "Contact",
+  },
+  ar: {
+    "nav.home": "الرئيسية",
+    "nav.about": "من نحن",
+    "nav.activities": "أنشطتنا",
+    "nav.heritage": "تراث مصوع",
+    "nav.contact": "اتصل بنا",
+  },
+  ti: {
+    "nav.home": "መበገሲ",
+    "nav.about": "ብዛዕባና",
+    "nav.activities": "ንጥፈታትና",
+    "nav.heritage": "ሃርቲጅ ማጻዋ",
+    "nav.contact": "ርኸቡና",
+  },
+};
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  }, [language]);
+
+  const t = (key: string) => {
+    return translations[language][key] ?? key;
+  };
+
+  const value: LanguageContextType = {
+    language,
+    setLanguage,
+    t,
+    dir: language === "ar" ? "rtl" : "ltr",
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used inside LanguageProvider");
+  }
+  return context;
+};
+
+
+/*import { createContext } from "react";
+
+type Language = "en" | "ar" | "ti";
+
+interface LanguageContextType {
+  language: Language;
+  setLanguage: (lang: Language) => void;
+  t: (key: string) => string;
+  dir: "ltr" | "rtl";
+}
+
+const LanguageContext = createContext<LanguageContextType | undefined>(
+  undefined
+);
+
+const translations: Record<Language, Record<string, string>> = {
+  en: {
+    "nav.home": "Home",
+    "nav.about": "About Us",
+    "nav.activities": "Our Activities",
+    "nav.heritage": "Heritage of Massawa",
+    "nav.contact": "Contact",
+  },
+  ar: {
+    "nav.home": "الرئيسية",
+    "nav.about": "من نحن",
+    "nav.activities": "أنشطتنا",
+    "nav.heritage": "تراث مصوع",
+    "nav.contact": "اتصل بنا",
+  },
+  ti: {
+    "nav.home": "መበገሲ",
+    "nav.about": "ብዛዕባና",
+    "nav.activities": "ንጥፈታትና",
+    "nav.heritage": "ሃርቲጅ ማጻዋ",
+    "nav.contact": "ርኸቡና",
+  },
+};
+
+export const LanguageProvider = ({ children }: { children: ReactNode }) => {
+  const [language, setLanguage] = useState<Language>("en");
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+    document.documentElement.dir = language === "ar" ? "rtl" : "ltr";
+  }, [language]);
+
+  const t = (key: string) => {
+    return translations[language][key] ?? key;
+  };
+
+  const value: LanguageContextType = {
+    language,
+    setLanguage,
+    t,
+    dir: language === "ar" ? "rtl" : "ltr",
+  };
+
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+export const useLanguage = () => {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used inside LanguageProvider");
+  }
+  return context;
+};
+
+
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
@@ -311,39 +448,10 @@ const translations: Record<Language, Record<string, string>> = {
     "aboutPage.integrity": "ቅንዕና",
     "aboutPage.integrityDesc": "ግሉጽ ስራሓትን ስነ-ምግባራዊ ተግባራትን ኣብ ኩሉ ጻዕርታት።",
   },
-};
+};*/
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>(() => {
-    const saved = localStorage.getItem("language");
-    return (saved as Language) || "en";
-  });
 
-  const dir = language === "ar" ? "rtl" : "ltr";
 
-  useEffect(() => {
-    localStorage.setItem("language", language);
-    document.documentElement.dir = dir;
-    document.documentElement.lang = language;
-  }, [language, dir]);
 
-  const t = (key: string): string => {
-    return translations[language][key] || translations.en[key] || key;
-  };
 
-  return (
-    <LanguageContext.Provider value={{ language, setLanguage, t, dir }}>
-      {children}
-    </LanguageContext.Provider>
-  );
-};
-
-export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error("useLanguage must be used within a LanguageProvider");
-  }
-  return context;
-};
