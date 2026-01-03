@@ -7,10 +7,26 @@ const About = () => {
   const { t } = useLanguage();
 
   const values = [
-    { icon: Heart, title: t("Passion"), description: t("Deep commitment to preserving cultural identity and architectural beauty.") },
-    { icon: Users, title: t("Community"), description: t("Engaging local stakeholders as partners in heritage preservation.") },
-    { icon: Target, title: t("Excellence"), description: t("Maintaining the highest standards in restoration and documentation.") },
-    { icon: Award, title: t("Integrity"), description: t("Transparent operations and ethical practices in all endeavors.") },
+    {
+      icon: Heart,
+      title: t("Passion"),
+      description: t("Deep commitment to preserving cultural identity and architectural beauty."),
+    },
+    {
+      icon: Users,
+      title: t("Community"),
+      description: t("Engaging local stakeholders as partners in heritage preservation."),
+    },
+    {
+      icon: Target,
+      title: t("Excellence"),
+      description: t("Maintaining the highest standards in restoration and documentation."),
+    },
+    {
+      icon: Award,
+      title: t("Integrity"),
+      description: t("Transparent operations and ethical practices in all endeavors."),
+    },
   ];
 
   return (
@@ -30,7 +46,9 @@ const About = () => {
             </h1>
 
             <p className="text-lg text-foreground/80 leading-relaxed">
-              {t("Founded in 2020, Urban Heritage emerged from a collective vision to safeguard Massawa's extraordinary architectural legacy. What began as a small group of passionate historians and architects has grown into a dedicated organization working across multiple fronts to preserve the ")}
+              {t(
+                "Founded in 2020, Urban Heritage emerged from a collective vision to safeguard Massawa's extraordinary architectural legacy. What began as a small group of passionate historians and architects has grown into a dedicated organization working across multiple fronts to preserve the "
+              )}
             </p>
 
             <h3 className="mt-10 font-semibold gradient-text text-lg">
@@ -52,7 +70,9 @@ const About = () => {
                   {t("Our Vision")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {t("A future where Massawa's heritage sites are fully restored, accessible to all, and serve as a source of pride, education, and sustainable economic development for local communities.")}
+                  {t(
+                    "A future where Massawa's heritage sites are fully restored, accessible to all, and serve as a source of pride, education, and sustainable economic development for local communities."
+                  )}
                 </p>
               </div>
 
@@ -61,7 +81,9 @@ const About = () => {
                   {t("Our Mission")}
                 </h2>
                 <p className="text-muted-foreground leading-relaxed">
-                  {t("To preserve, protect, and promote the architectural and cultural heritage of Massawa through professional restoration, comprehensive documentation, community education, and international collaboration")}
+                  {t(
+                    "To preserve, protect, and promote the architectural and cultural heritage of Massawa through professional restoration, comprehensive documentation, community education, and international collaboration"
+                  )}
                 </p>
               </div>
             </div>
@@ -73,8 +95,7 @@ const About = () => {
           <div className="container mx-auto px-6">
             <div className="text-center mb-16">
               <h2 className="font-serif font-bold text-4xl sm:text-5xl text-foreground">
-                {t("")}{"Our Values "}
-                <span className="gradient-text">{t("")}</span>
+                Our Values <span className="gradient-text"></span>
               </h2>
             </div>
 
@@ -96,7 +117,8 @@ const About = () => {
           </div>
         </section>
       </main>
-      <FooterSection/>
+
+      <FooterSection />
     </div>
   );
 };

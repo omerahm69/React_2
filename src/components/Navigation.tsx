@@ -1,14 +1,14 @@
 
 import logo from "@/assets/logo.webp";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useLanguage } from "../i18n/LanguageContext";
 
 export const Navigation = () => {
-  const { t, dir} = useLanguage();
+  const { t, } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 

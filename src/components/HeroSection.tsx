@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
 
   const scrollToContent = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });

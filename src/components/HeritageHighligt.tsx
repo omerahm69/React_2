@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { Link } from "react-router-dom";
 
 export const HeritageHighlight = () => {

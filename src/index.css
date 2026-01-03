@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&family=Noto+Sans+Ethiopic:wght@300;400;500;600;700&display=swap');
 
 @import "tailwindcss";
 
@@ -13,6 +14,7 @@
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
 }
+/*
 @layer base {
   :root {
     --background: #ffffff;
@@ -52,13 +54,13 @@
 
     --radius: 0.5rem;
 
-    /* Premium gradients */
+    /* Premium gradients 
     --gradient-primary: linear-gradient(135deg, hsl(30 60% 50%), hsl(38 80% 55%));
     --gradient-hero: linear-gradient(135deg, hsl(30 60% 45%), hsl(38 85% 60%), hsl(30 60% 50%));
     --gradient-text: linear-gradient(135deg, hsl(30 60% 40%), hsl(38 80% 50%));
     --gradient-dark: linear-gradient(135deg, hsl(30 15% 20%), hsl(30 10% 15%));
 
-    /* Shadows */
+    /* Shadows 
     --shadow-text: 0 4px 20px hsla(30, 60%, 20%, 0.3);
     --shadow-glow: 0 0 40px hsla(38, 80%, 55%, 0.4);
     --shadow-card: 0 10px 40px -10px hsla(30, 60%, 20%, 0.15);
@@ -124,7 +126,7 @@
     font-family: 'Inter', sans-serif;
   }
 
-/* RTL font support */
+/* RTL font support 
   [dir="rtl"] body {
     font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
   }
@@ -246,4 +248,234 @@
       transform: scale(1);
     }
   }
+}*/
+@layer base {
+  :root {
+    /* Heritage-inspired warm palette with coastal blues */
+    --background: 38 33% 97%;
+    --foreground: 25 30% 15%;
+
+    --card: 40 30% 95%;
+    --card-foreground: 25 30% 15%;
+
+    --popover: 40 30% 95%;
+    --popover-foreground: 25 30% 15%;
+
+    /* Terracotta primary */
+    --primary: 18 55% 45%;
+    --primary-foreground: 40 30% 98%;
+
+    /* Sandy secondary */
+    --secondary: 35 35% 85%;
+    --secondary-foreground: 25 30% 20%;
+
+    /* Muted warm tones */
+    --muted: 35 20% 90%;
+    --muted-foreground: 25 15% 45%;
+
+    /* Coastal blue accent */
+    --accent: 200 50% 45%;
+    --accent-foreground: 200 50% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 35 25% 82%;
+    --input: 35 25% 82%;
+    --ring: 18 55% 45%;
+
+    --radius: 0.5rem;
+
+    /* Custom heritage colors */
+    --heritage-gold: 42 65% 55%;
+    --heritage-ocean: 200 55% 40%;
+    --heritage-sand: 38 40% 88%;
+    --heritage-coral: 15 60% 65%;
+    --heritage-stone: 30 15% 70%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, hsla(25, 30%, 10%, 0.7) 0%, hsla(25, 30%, 10%, 0.3) 50%, transparent 100%);
+    --gradient-overlay: linear-gradient(135deg, hsla(18, 55%, 45%, 0.1) 0%, hsla(200, 50%, 45%, 0.1) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(40, 30%, 95%) 0%, hsl(38, 33%, 97%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsla(25, 30%, 15%, 0.1);
+    --shadow-elevated: 0 12px 40px -8px hsla(25, 30%, 15%, 0.15);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 25% 10%;
+    --foreground: 38 30% 92%;
+
+    --card: 25 20% 14%;
+    --card-foreground: 38 30% 92%;
+
+    --popover: 25 20% 14%;
+    --popover-foreground: 38 30% 92%;
+
+    --primary: 18 55% 55%;
+    --primary-foreground: 25 25% 10%;
+
+    --secondary: 25 20% 20%;
+    --secondary-foreground: 38 30% 92%;
+
+    --muted: 25 15% 18%;
+    --muted-foreground: 35 20% 60%;
+
+    --accent: 200 50% 55%;
+    --accent-foreground: 200 50% 10%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 25 15% 22%;
+    --input: 25 15% 22%;
+    --ring: 18 55% 55%;
+
+    --heritage-gold: 42 55% 50%;
+    --heritage-ocean: 200 45% 50%;
+    --heritage-sand: 35 20% 25%;
+    --heritage-coral: 15 50% 55%;
+    --heritage-stone: 30 10% 35%;
+
+    --gradient-hero: linear-gradient(180deg, hsla(25, 30%, 5%, 0.85) 0%, hsla(25, 30%, 5%, 0.5) 50%, transparent 100%);
+    --gradient-overlay: linear-gradient(135deg, hsla(18, 55%, 45%, 0.15) 0%, hsla(200, 50%, 45%, 0.15) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(25, 20%, 14%) 0%, hsl(25, 25%, 10%) 100%);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* RTL font support */
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', sans-serif;
+  }
+
+  [lang="ti"] body {
+    font-family: 'Noto Sans Ethiopic', 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Pro', serif;
+    @apply font-medium tracking-tight;
+  }
+
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3, 
+  [dir="rtl"] h4, [dir="rtl"] h5, [dir="rtl"] h6 {
+    font-family: 'Noto Sans Arabic', serif;
+  }
+
+  [lang="ti"] h1, [lang="ti"] h2, [lang="ti"] h3,
+  [lang="ti"] h4, [lang="ti"] h5, [lang="ti"] h6 {
+    font-family: 'Noto Sans Ethiopic', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .heritage-gradient {
+    background: var(--gradient-overlay);
+  }
+
+  .hero-overlay {
+    background: var(--gradient-hero);
+  }
+
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  /* Drop cap styling for heritage feel */
+  .drop-cap::first-letter {
+    @apply float-left text-7xl font-bold leading-none mr-3 mt-1;
+    font-family: 'Crimson Pro', serif;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--heritage-ocean)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  [dir="rtl"] .drop-cap::first-letter {
+    @apply float-right ml-3 mr-0;
+    font-family: 'Noto Sans Arabic', serif;
+  }
+
+  /* Slow zoom animation for hero image */
+  @keyframes slow-zoom {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-slow-zoom {
+    animation: slow-zoom 20s ease-out forwards;
+  }
+
+  /* Text shadow utilities */
+  .drop-shadow-2xl {
+    filter: drop-shadow(0 25px 25px rgba(0, 0, 0, 0.15));
+  }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
 }

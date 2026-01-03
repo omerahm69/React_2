@@ -5,6 +5,8 @@ import TimelineSection from "@/components/TimelineSection";
 import FooterSection from "../components/FooterSection";
 import HeritageSection from "../components/Heritage";
 
+
+
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">

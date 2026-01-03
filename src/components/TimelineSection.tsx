@@ -133,7 +133,7 @@ const TimelineSection = () => {
 
 export default TimelineSection;*/
 
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";

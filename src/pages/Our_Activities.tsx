@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { CheckCircle } from "lucide-react";
+import FooterSection from "../components/FooterSection";
 
 const Activities = () => {
   const { t } = useLanguage();
