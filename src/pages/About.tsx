@@ -1,10 +1,10 @@
 import { FooterSection as Footer } from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
-import { useLanguage } from "@/i18ns/LanguageContext";
+import { useLanguage } from "@/i18n/LanguageContext";
 import { Award, Heart, Target, Users } from "lucide-react";
 
 const About = () => {
-  const { t } = useLanguage();
+  const { t, dir } = useLanguage();
 
   const values = [
     { icon: Heart, title: t("aboutPage.passion"), description: t("aboutPage.passionDesc") },

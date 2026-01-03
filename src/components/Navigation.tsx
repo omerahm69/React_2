@@ -33,7 +33,7 @@ export const Navigation = () => {
               <img
                 src={logo}
                 alt="Urban Heritage Logo"
-                className="h-8 w-8 rounded-full"
+                className="h-12 w-12 "
               />
             </div>
             <span className="font-serif font-bold text-2xl gradient-text">
