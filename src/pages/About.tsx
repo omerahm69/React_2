@@ -1,7 +1,8 @@
-import { FooterSection } from "@/components/FooterSection";
+
 import { Navigation } from "@/components/Navigation";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Award, Heart, Target, Users } from "lucide-react";
+import FooterSection from "../components/FooterSection";
 
 const About = () => {
   const { t, dir } = useLanguage();

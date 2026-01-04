@@ -1,6 +1,7 @@
-import { Mail, MapPin, Phone } from "lucide-react";
+/*import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import { useLanguage } from '@/i18n/LanguageContext';
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
@@ -111,4 +112,115 @@ export const FooterSection = () => {
   );
 };
 
-export default FooterSection;
+export default FooterSection;*/
+
+
+import { useLanguage } from '@/i18n/LanguageContext';
+import { Heart, Mail, MapPin, Phone } from 'lucide-react';
+import AnimatedSection from './AnimatedSection';
+
+const Footer = () => {
+  const { t, dir } = useLanguage();
+
+  const currentYear = new Date().getFullYear();
+
+  return (
+    <footer id="contact" className="relative overflow-hidden">
+      {/* Decorative top border */}
+      <div className="h-1 bg-gradient-to-r from-heritage-coral via-heritage-gold to-heritage-ocean" />
+      
+      <div className="bg-foreground text-background py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <AnimatedSection animation="fade-up">
+              <div className="grid md:grid-cols-3 gap-12 lg:gap-16 mb-16">
+                {/* Brand */}
+                <div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg">
+                      <span className="text-primary-foreground font-serif text-2xl font-bold">A</span>
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-serif font-bold tracking-wide">AKAN</h3>
+                      <p className="text-sm text-background/60">{t.hero.subtitle}</p>
+                    </div>
+                  </div>
+                  <p className="text-background/70 leading-relaxed">
+                    {t.footer.organization}
+                  </p>
+                </div>
+
+                {/* Quick Links */}
+                <div>
+                  <h4 className="font-serif font-semibold text-lg mb-6 text-heritage-gold flex items-center gap-2">
+                    <span className="w-8 h-px bg-heritage-gold/50" />
+                    Quick Links
+                  </h4>
+                  <nav className="flex flex-col gap-3">
+                    <a href="#home" className="text-background/70 hover:text-heritage-gold transition-colors duration-300 flex items-center gap-2 group">
+                      <span className="w-0 group-hover:w-3 h-px bg-heritage-gold transition-all duration-300" />
+                      {t.nav.home}
+                    </a>
+                    <a href="#about" className="text-background/70 hover:text-heritage-gold transition-colors duration-300 flex items-center gap-2 group">
+                      <span className="w-0 group-hover:w-3 h-px bg-heritage-gold transition-all duration-300" />
+                      {t.nav.aboutUs}
+                    </a>
+                    <a href="#heritage" className="text-background/70 hover:text-heritage-gold transition-colors duration-300 flex items-center gap-2 group">
+                      <span className="w-0 group-hover:w-3 h-px bg-heritage-gold transition-all duration-300" />
+                      {t.nav.urbanHeritage}
+                    </a>
+                    <a href="#activities" className="text-background/70 hover:text-heritage-gold transition-colors duration-300 flex items-center gap-2 group">
+                      <span className="w-0 group-hover:w-3 h-px bg-heritage-gold transition-all duration-300" />
+                      {t.nav.activities}
+                    </a>
+                  </nav>
+                </div>
+
+                {/* Contact */}
+                <div>
+                  <h4 className="font-serif font-semibold text-lg mb-6 text-heritage-gold flex items-center gap-2">
+                    <span className="w-8 h-px bg-heritage-gold/50" />
+                    {t.nav.contact}
+                  </h4>
+                  <div className="flex flex-col gap-4">
+                    <a href="mailto:info@akan-heritage.org" className="flex items-center gap-4 text-background/70 hover:text-background transition-colors group">
+                      <div className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center group-hover:bg-heritage-ocean/20 transition-colors">
+                        <Mail className="w-5 h-5 text-heritage-ocean" />
+                      </div>
+                      <span>info@akan-heritage.org</span>
+                    </a>
+                    <a href="tel:+2911123456" className="flex items-center gap-4 text-background/70 hover:text-background transition-colors group">
+                      <div className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center group-hover:bg-heritage-ocean/20 transition-colors">
+                        <Phone className="w-5 h-5 text-heritage-ocean" />
+                      </div>
+                      <span>+291 1 123 456</span>
+                    </a>
+                    <div className="flex items-center gap-4 text-background/70">
+                      <div className="w-10 h-10 bg-background/10 rounded-lg flex items-center justify-center">
+                        <MapPin className="w-5 h-5 text-heritage-ocean" />
+                      </div>
+                      <span>Massawa, Eritrea</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Bottom */}
+            <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-background/50 text-sm flex items-center gap-2">
+                © {currentYear} AKAN. {t.footer.rights}
+              </p>
+              <p className="text-background/40 text-sm flex items-center gap-1">
+                Made with <Heart className="w-4 h-4 text-heritage-coral fill-heritage-coral" /> for Massawa
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
+

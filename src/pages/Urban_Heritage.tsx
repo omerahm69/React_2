@@ -1,4 +1,3 @@
-import { FooterSection as Footer } from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
 
 import { useLanguage } from "@/i18n/LanguageContext";
