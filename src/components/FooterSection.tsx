@@ -115,7 +115,7 @@ export const FooterSection = () => {
 export default FooterSection;*/
 
 
-import { useLanguage } from '@/i18n/LanguageContext';
+/*import { useLanguage } from '@/i18n/LanguageContext';
 import { Heart, Mail, MapPin, Phone } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
@@ -125,8 +125,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
+  
     <footer id="contact" className="relative overflow-hidden">
-      {/* Decorative top border */}
+      {/* Decorative top border }
       <div className="h-1 bg-gradient-to-r from-heritage-coral via-heritage-gold to-heritage-ocean" />
       
       <div className="bg-foreground text-background py-20">
@@ -134,7 +135,7 @@ const Footer = () => {
           <div className="max-w-6xl mx-auto">
             <AnimatedSection animation="fade-up">
               <div className="grid md:grid-cols-3 gap-12 lg:gap-16 mb-16">
-                {/* Brand */}
+                {/* Brand }
                 <div>
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-14 h-14 bg-gradient-to-br from-primary to-primary/80 rounded-xl flex items-center justify-center shadow-lg">
@@ -150,7 +151,7 @@ const Footer = () => {
                   </p>
                 </div>
 
-                {/* Quick Links */}
+                {/* Quick Links }
                 <div>
                   <h4 className="font-serif font-semibold text-lg mb-6 text-heritage-gold flex items-center gap-2">
                     <span className="w-8 h-px bg-heritage-gold/50" />
@@ -176,7 +177,7 @@ const Footer = () => {
                   </nav>
                 </div>
 
-                {/* Contact */}
+                {/* Contact }
                 <div>
                   <h4 className="font-serif font-semibold text-lg mb-6 text-heritage-gold flex items-center gap-2">
                     <span className="w-8 h-px bg-heritage-gold/50" />
@@ -206,7 +207,7 @@ const Footer = () => {
               </div>
             </AnimatedSection>
 
-            {/* Bottom */}
+            {/* Bottom }
             <div className="border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-background/50 text-sm flex items-center gap-2">
                 © {currentYear} AKAN. {t.footer.rights}
@@ -222,5 +223,54 @@ const Footer = () => {
   );
 };
 
+export default Footer;*/
+
+const Footer = () => {
+  // Hardcoded footer content
+  const rtl = false;
+
+  const footer = {
+    address: "123 Heritage Street, Massawa, Eritrea",
+    email: "info@massawaheritage.org",
+    social: [
+      { platform: "Facebook", url: "https://facebook.com/massawaheritage" },
+      { platform: "Twitter", url: "https://twitter.com/massawaheritage" },
+      { platform: "Instagram", url: "https://instagram.com/massawaheritage" },
+    ],
+    copyright: "© 2026 Massawa Heritage. All rights reserved.",
+  };
+
+  return (
+    <footer
+      dir={rtl ? "rtl" : "ltr"}
+      className="bg-card py-10 mt-20"
+    >
+      <div className="container mx-auto px-6 text-center">
+        <p className="mb-2">{footer.address}</p>
+        <p className="mb-4">{footer.email}</p>
+
+        <div className="flex justify-center gap-4 mb-4">
+          {footer.social.map((social) => (
+            <a
+              key={social.platform}
+              href={social.url}
+              className="text-primary hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {social.platform}
+            </a>
+          ))}
+        </div>
+
+        <p className="text-sm text-muted-foreground">
+          {footer.copyright}
+        </p>
+      </div>
+    </footer>
+  );
+};
+
 export default Footer;
+
 

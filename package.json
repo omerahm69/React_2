@@ -18,11 +18,13 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "i18next": "^25.7.3",
+    "intlayer": "^7.5.9",
     "lucide-react": "^0.562.0",
     "next-themes": "^0.4.6",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
     "react-i18next": "^16.5.0",
+    "react-intlayer": "^7.5.9",
     "react-router-dom": "^7.11.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0",
@@ -40,6 +42,7 @@
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "^7.2.4",
+    "vite-intlayer": "^7.5.9"
   }
 }

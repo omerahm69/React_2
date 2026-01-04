@@ -1,9 +1,6 @@
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { Toaster } from "@/components/ui/toaster";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { LanguageProvider } from "@/i18n/LanguageContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+
 
 
 import About from "@/pages/About";
@@ -18,26 +15,20 @@ const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <LanguageProvider>
-        <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/About" element={<About />} />
-              <Route path="/Our_Activities" element={<Activities />} />
-              <Route path="/Urban_Heritage" element={<Heritage />} />
-              <Route path="/Contact" element={<Contact />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </BrowserRouter>
-        </TooltipProvider>
-      </LanguageProvider>
+    
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Our_Activities" element={<Activities />} />
+            <Route path="/Urban_Heritage" element={<Heritage />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
     </QueryClientProvider>
   );
 };
 
 export default App;
-
 

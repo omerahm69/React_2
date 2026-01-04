@@ -312,19 +312,30 @@ const TimelineSection = () => {
 export default TimelineSection;*/
 
 
-import { useLanguage } from '@/i18n/LanguageContext';
-import { cn } from '@/lib/utils';
-import { Calendar, Clock } from 'lucide-react';
-import AnimatedSection from './AnimatedSection';
+
+import { cn } from "@/lib/utils";
+import { Calendar, Clock } from "lucide-react";
+import AnimatedSection from "./AnimatedSection";
 
 const TimelineSection = () => {
-  const { t, dir } = useLanguage();
+  // Hardcoded timeline content
+  const rtl = false;
+
+  const timeline = {
+    title: "Historical Journey of Massawa",
+    events: [
+      { year: "1500s", description: "Massawa became an important Red Sea port, facilitating trade across the Indian Ocean." },
+      { year: "1600s", description: "Ottoman influence shaped the city's architecture and urban layout." },
+      { year: "1800s", description: "European powers, including Italy, established colonial presence and built key structures." },
+      { year: "1900s", description: "Modernization and preservation efforts began, blending historical heritage with contemporary growth." },
+    ],
+  };
 
   return (
     <section id="activities" className="py-24 md:py-36 relative overflow-hidden">
       {/* Background styling */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30" />
-      
+
       <div className="container mx-auto px-4 relative">
         <div className="max-w-5xl mx-auto">
           <AnimatedSection animation="fade-up">
@@ -332,80 +343,91 @@ const TimelineSection = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-heritage-gold to-heritage-gold/70 rounded-2xl flex items-center justify-center shadow-elevated mb-6">
                 <Clock className="w-8 h-8 text-white" />
               </div>
-              <p className="text-heritage-gold font-medium text-sm tracking-wider uppercase mb-3">Historical Journey</p>
+              <p className="text-heritage-gold font-medium text-sm tracking-wider uppercase mb-3">
+                Historical Journey
+              </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">
-                {t.timeline.title}
+                {timeline.title}
               </h2>
             </div>
           </AnimatedSection>
 
           <div className="relative">
-            {/* Timeline Line with gradient */}
-            <div className={cn(
-              "absolute top-0 bottom-0 w-1 rounded-full",
-              "bg-gradient-to-b from-heritage-gold via-heritage-ocean to-primary",
-              dir === 'rtl' ? 'right-6 md:right-1/2 md:-mr-0.5' : 'left-6 md:left-1/2 md:-ml-0.5'
-            )} />
+            {/* Timeline Line */}
+            <div
+              className={cn(
+                "absolute top-0 bottom-0 w-1 rounded-full",
+                "bg-gradient-to-b from-heritage-gold via-heritage-ocean to-primary",
+                rtl ? "right-6 md:right-1/2 md:-mr-0.5" : "left-6 md:left-1/2 md:-ml-0.5"
+              )}
+            />
 
             {/* Timeline Events */}
             <div className="space-y-12">
-              {t.timeline.events.map((event, index) => (
-                <AnimatedSection 
-                  key={event.year} 
-                  animation={index % 2 === 0 ? 'slide-left' : 'slide-right'}
+              {timeline.events.map((event, index) => (
+                <AnimatedSection
+                  key={event.year}
+                  animation={index % 2 === 0 ? "slide-left" : "slide-right"}
                   delay={index * 100}
                 >
                   <div
                     className={cn(
                       "relative flex gap-8 md:gap-0",
-                      dir === 'rtl' ? 'flex-row-reverse' : 'flex-row'
+                      rtl ? "flex-row-reverse" : "flex-row"
                     )}
                   >
                     {/* Year Badge - Desktop */}
-                    <div className={cn(
-                      "hidden md:flex md:w-1/2 items-center",
-                      dir === 'rtl' 
-                        ? 'justify-start pl-12' 
-                        : 'justify-end pr-12',
-                      index % 2 !== 0 && 'md:order-2',
-                      index % 2 !== 0 && (dir === 'rtl' ? 'md:justify-end md:pr-12 md:pl-0' : 'md:justify-start md:pl-12 md:pr-0')
-                    )}>
-                      <span className={cn(
-                        "inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-serif font-bold text-xl rounded-xl shadow-elevated",
-                        index % 2 === 0 ? '' : 'md:hidden'
-                      )}>
+                    <div
+                      className={cn(
+                        "hidden md:flex md:w-1/2 items-center",
+                        rtl ? "justify-start pl-12" : "justify-end pr-12",
+                        index % 2 !== 0 && "md:order-2",
+                        index % 2 !== 0 &&
+                          (rtl
+                            ? "md:justify-end md:pr-12 md:pl-0"
+                            : "md:justify-start md:pl-12 md:pr-0")
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "inline-flex items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-serif font-bold text-xl rounded-xl shadow-elevated",
+                          index % 2 === 0 ? "" : "md:hidden"
+                        )}
+                      >
                         <Calendar className="w-5 h-5" />
                         {event.year}
                       </span>
-                      <span className={cn(
-                        "hidden items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-serif font-bold text-xl rounded-xl shadow-elevated",
-                        index % 2 !== 0 && 'md:inline-flex'
-                      )}>
+                      <span
+                        className={cn(
+                          "hidden items-center gap-2 px-5 py-3 bg-gradient-to-r from-primary to-primary/80 text-primary-foreground font-serif font-bold text-xl rounded-xl shadow-elevated",
+                          index % 2 !== 0 && "md:inline-flex"
+                        )}
+                      >
                         <Calendar className="w-5 h-5" />
                         {event.year}
                       </span>
                     </div>
 
-                    {/* Dot with pulse effect */}
-                    <div className={cn(
-                      "absolute w-5 h-5 rounded-full top-4 z-10",
-                      "bg-gradient-to-br from-heritage-ocean to-heritage-ocean/70",
-                      "ring-4 ring-background shadow-lg",
-                      dir === 'rtl' 
-                        ? 'right-4 md:right-1/2 md:translate-x-1/2' 
-                        : 'left-4 md:left-1/2 md:-translate-x-1/2'
-                    )}>
+                    {/* Dot */}
+                    <div
+                      className={cn(
+                        "absolute w-5 h-5 rounded-full top-4 z-10",
+                        "bg-gradient-to-br from-heritage-ocean to-heritage-ocean/70",
+                        "ring-4 ring-background shadow-lg",
+                        rtl ? "right-4 md:right-1/2 md:translate-x-1/2" : "left-4 md:left-1/2 md:-translate-x-1/2"
+                      )}
+                    >
                       <div className="absolute inset-0 bg-heritage-ocean rounded-full animate-ping opacity-20" />
                     </div>
 
                     {/* Content */}
-                    <div className={cn(
-                      "md:w-1/2 flex-1",
-                      dir === 'rtl' 
-                        ? 'md:pr-12' 
-                        : 'md:pl-12',
-                      index % 2 === 0 ? 'md:order-2' : ''
-                    )}>
+                    <div
+                      className={cn(
+                        "md:w-1/2 flex-1",
+                        rtl ? "md:pr-12" : "md:pl-12",
+                        index % 2 === 0 ? "md:order-2" : ""
+                      )}
+                    >
                       <div className="group card-gradient rounded-2xl p-6 lg:p-8 shadow-elevated border border-border/50 hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
                         {/* Mobile year badge */}
                         <span className="md:hidden inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary font-serif font-bold text-sm rounded-lg mb-4">
@@ -423,11 +445,13 @@ const TimelineSection = () => {
             </div>
 
             {/* End marker */}
-            <div className={cn(
-              "absolute -bottom-4 w-8 h-8 bg-gradient-to-br from-primary to-heritage-coral rounded-full",
-              "flex items-center justify-center shadow-elevated",
-              dir === 'rtl' ? 'right-3 md:right-1/2 md:translate-x-1/2' : 'left-3 md:left-1/2 md:-translate-x-1/2'
-            )}>
+            <div
+              className={cn(
+                "absolute -bottom-4 w-8 h-8 bg-gradient-to-br from-primary to-heritage-coral rounded-full",
+                "flex items-center justify-center shadow-elevated",
+                rtl ? "right-3 md:right-1/2 md:translate-x-1/2" : "left-3 md:left-1/2 md:-translate-x-1/2"
+              )}
+            >
               <div className="w-3 h-3 bg-white rounded-full" />
             </div>
           </div>
@@ -438,4 +462,3 @@ const TimelineSection = () => {
 };
 
 export default TimelineSection;
-

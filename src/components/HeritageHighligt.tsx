@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
+
 import { Link } from "react-router-dom";
 
 export const HeritageHighlight = () => {
-  const { t, dir } = useLanguage();
+  const { t, rtl  } = useLanguage();
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section 
+    dir={rtl ? "rtl" : "ltr"}
+    className="py-24 bg-background relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />

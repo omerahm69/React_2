@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from "@vitejs/plugin-react";
 import path from "path";
 import { defineConfig } from "vite";
+import { intlayer } from 'vite-intlayer'; // Add the plugin to the Vite plugin list
 
 export default defineConfig({
   server: {
@@ -17,7 +18,7 @@ export default defineConfig({
     ],
   },
 
-  plugins: [react(), tailwindcss()],
+  plugins: [react(), tailwindcss(), intlayer()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

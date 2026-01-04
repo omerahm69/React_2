@@ -1,13 +1,14 @@
 
-import { useLanguage } from "@/i18n/LanguageContext";
+
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export const ActivitiesSection = () => {
-  const { t, dir} = useLanguage();
+  const { t, rtl} = useLanguage();
 
   const activities = [
     {
+      dir={rtl ? "rtl" : "ltr"}
       number: "01",
       title: t("Studies"),
       description: t("Three studies were prepared, after reviewing previous studies. A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998"),

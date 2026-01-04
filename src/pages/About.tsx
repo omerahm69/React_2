@@ -1,37 +1,36 @@
-
+import FooterSection from "@/components/FooterSection";
 import { Navigation } from "@/components/Navigation";
-import { useLanguage } from "@/i18n/LanguageContext";
+
 import { Award, Heart, Target, Users } from "lucide-react";
-import FooterSection from "../components/FooterSection";
 
 const About = () => {
-  const { t, dir } = useLanguage();
+  const { t, rtl } = useLanguage();
 
   const values = [
     {
       icon: Heart,
-      title: t("Passion"),
-      description: t("Deep commitment to preserving cultural identity and architectural beauty."),
+      title: t.about.values.passion.title,
+      description: t.about.values.passion.description,
     },
     {
       icon: Users,
-      title: t("Community"),
-      description: t("Engaging local stakeholders as partners in heritage preservation."),
+      title: t.about.values.community.title,
+      description: t.about.values.community.description,
     },
     {
       icon: Target,
-      title: t("Excellence"),
-      description: t("Maintaining the highest standards in restoration and documentation."),
+      title: t.about.values.excellence.title,
+      description: t.about.values.excellence.description,
     },
     {
       icon: Award,
-      title: t("Integrity"),
-      description: t("Transparent operations and ethical practices in all endeavors."),
+      title: t.about.values.integrity.title,
+      description: t.about.values.integrity.description,
     },
   ];
 
   return (
-    <div className="min-h-screen bg-background">
+    <div dir={rtl ? "rtl" : "ltr"} className="min-h-screen bg-background">
       <Navigation />
 
       <main className="pt-24">
@@ -39,54 +38,38 @@ const About = () => {
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6 max-w-4xl">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">
-              {t("Our Story")}
+              {t.about.badge}
             </span>
 
-            <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              {t("From exile to homecoming: Rediscovering Massawa's Urban Heritage")}
+            <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl mt-4 mb-8">
+              {t.about.title}
             </h1>
 
             <p className="text-lg text-foreground/80 leading-relaxed">
-              {t(
-                "Founded in 2020, Urban Heritage emerged from a collective vision to safeguard Massawa's extraordinary architectural legacy. What began as a small group of passionate historians and architects has grown into a dedicated organization working across multiple fronts to preserve the "
-              )}
-            </p>
-
-            <h3 className="mt-10 font-semibold gradient-text text-lg">
-              {t("The goal of the initiative")}
-            </h3>
-
-            <p className="mt-4 text-lg text-foreground/80 leading-relaxed">
-              {t("Stages of implementing the initiative Establishment stage")}
+              {t.about.description}
             </p>
           </div>
         </section>
 
-        {/* Mission & Vision */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-6">
-            <div className="grid md:grid-cols-2 gap-12">
-              <div className="card-hover bg-card p-10 rounded-3xl">
-                <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("Our Vision")}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t(
-                    "A future where Massawa's heritage sites are fully restored, accessible to all, and serve as a source of pride, education, and sustainable economic development for local communities."
-                  )}
-                </p>
-              </div>
+        {/* Vision & Mission */}
+        <section className="py-20">
+          <div className="container mx-auto px-6 grid md:grid-cols-2 gap-12">
+            <div className="bg-card p-10 rounded-3xl">
+              <h2 className="font-serif font-bold text-3xl mb-6">
+                {t.about.vision.title}
+              </h2>
+              <p className="text-muted-foreground">
+                {t.about.vision.content}
+              </p>
+            </div>
 
-              <div className="card-hover bg-card p-10 rounded-3xl">
-                <h2 className="font-serif font-bold text-3xl text-foreground mb-6">
-                  {t("Our Mission")}
-                </h2>
-                <p className="text-muted-foreground leading-relaxed">
-                  {t(
-                    "To preserve, protect, and promote the architectural and cultural heritage of Massawa through professional restoration, comprehensive documentation, community education, and international collaboration"
-                  )}
-                </p>
-              </div>
+            <div className="bg-card p-10 rounded-3xl">
+              <h2 className="font-serif font-bold text-3xl mb-6">
+                {t.about.mission.title}
+              </h2>
+              <p className="text-muted-foreground">
+                {t.about.mission.content}
+              </p>
             </div>
           </div>
         </section>
@@ -94,19 +77,17 @@ const About = () => {
         {/* Values */}
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6">
-            <div className="text-center mb-16">
-              <h2 className="font-serif font-bold text-4xl sm:text-5xl text-foreground">
-                Our Values <span className="gradient-text"></span>
-              </h2>
-            </div>
+            <h2 className="text-center font-serif font-bold text-4xl mb-16">
+              {t.about.values.title}
+            </h2>
 
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
               {values.map((value) => (
-                <div key={value.title} className="text-center group">
-                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <div key={value.title} className="text-center">
+                  <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
                     <value.icon size={28} />
                   </div>
-                  <h3 className="font-serif font-semibold text-xl text-foreground mb-3">
+                  <h3 className="font-serif font-semibold text-xl mb-3">
                     {value.title}
                   </h3>
                   <p className="text-muted-foreground text-sm">
@@ -118,7 +99,6 @@ const About = () => {
           </div>
         </section>
       </main>
-
       <FooterSection />
     </div>
   );

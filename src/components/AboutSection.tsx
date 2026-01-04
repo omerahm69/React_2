@@ -1,5 +1,4 @@
 
-import { useLanguage } from "@/i18n/LanguageContext";
 import { BookOpen, Building2, Users } from "lucide-react";
 
 export const AboutSection = () => {

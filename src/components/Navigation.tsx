@@ -2,14 +2,13 @@
 import logo from "@/assets/logo.webp";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
-import { useLanguage } from "@/i18n/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export const Navigation = () => {
-  const { t, } = useLanguage();
+  const { t, rtl } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -22,7 +21,9 @@ export const Navigation = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav 
+    dir={rtl ? "rtl" : "ltr"}
+    className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}

@@ -1,13 +1,27 @@
 import AnimatedSection from '@/components/AnimatedSection';
-
-import { useLanguage } from "@/i18n/LanguageContext";
 import { Anchor, Compass, MapPin } from 'lucide-react';
 
 const GeographySection = () => {
-  const { t, dir } = useLanguage();
+  // Hardcoded translations
+  const t = {
+    geography: {
+      title: "Geographical overview of the city of Massawa",
+      content:
+        "Massawa is the second most important city and the main port in Eritrea, it is located on the coast of the most important international trade lines, and it was an important historical port for several centuries. The city is located on the souther.",
+      image: "Map of Massawa",
+    },
+    about: "About Massawa",
+  };
+
+  // Hardcoded RTL (set false for now)
+  const rtl = false;
 
   return (
-    <section id="about" className="py-24 md:py-36 bg-background relative overflow-hidden">
+    <section
+      id="about"
+      dir={rtl ? "rtl" : "ltr"}
+      className="py-24 md:py-36 bg-background relative overflow-hidden"
+    >
       {/* Decorative background elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-96 h-96 bg-heritage-ocean/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
@@ -22,28 +36,31 @@ const GeographySection = () => {
                 <MapPin className="w-8 h-8 text-white" />
               </div>
               <div>
-                <p className="text-heritage-ocean font-medium text-sm tracking-wider uppercase mb-1">About Massawa</p>
+                <p className="text-heritage-ocean font-medium text-sm tracking-wider uppercase mb-1">
+                  {t.about}
+                </p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-tight">
-                  {t("Geographical overview of the city of Massawa ")}
+                  {t.geography.title}
                 </h2>
                 <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
-                {t("Massawa is the second most important city and the main port in Eritrea, it is located on the coast of the most important international trade lines, and it was an important historical port for several centuries. The city is located on the souther.")}
+                  {t.geography.content}
                 </p>
-                      <img src = "images/Kart_of_Massawa.webp"
-                      alt={t("geography")}
-                      className="mt-8 w-full h-64 object-cover rounded-xl shadow-elevated"/>
-                      
+                <img
+                  src="images/Kart_of_Massawa.webp"
+                  alt={t.geography.image}
+                  className="mt-8 w-full h-64 object-cover rounded-xl shadow-elevated"
+                />
               </div>
             </div>
           </AnimatedSection>
-          
+
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="card-gradient rounded-3xl p-8 md:p-12 shadow-elevated border border-border/50 relative overflow-hidden">
               {/* Decorative corner accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-heritage-ocean/5 rounded-bl-[100px]" />
-              
+
               <p className="text-lg md:text-xl text-foreground/80 leading-relaxed drop-cap relative z-10">
-                {t("GEOGRAPHY.CONTENT")}
+                {t.geography.content}
               </p>
 
               {/* Feature highlights */}
