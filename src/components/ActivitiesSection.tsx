@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext;
 
 export const ActivitiesSection = () => {
   const { t, rtl} = useLanguage();

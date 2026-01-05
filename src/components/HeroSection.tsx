@@ -1,5 +1,5 @@
-/*import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/i18n/LanguageContext";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowDown } from "lucide-react";
 
 export const HeroSection = () => {
@@ -11,7 +11,7 @@ export const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with overlay }
+      {/* Background with overlay */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
@@ -23,14 +23,14 @@ export const HeroSection = () => {
         }}
       />
 
-      {/* Decorative elements }
+      {/* Decorative elements*/}
       <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-primary/10 blur-3xl animate-float" />
       <div
         className="absolute bottom-40 right-20 w-48 h-48 rounded-full bg-accent/10 blur-3xl animate-float"
         style={{ animationDelay: "2s" }}
       />
 
-      {/* Content }
+      {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <p className="animate-fade-up text-primary font-medium tracking-[0.3em] uppercase text-sm mb-6">
           {t("hero.tagline")}
@@ -89,7 +89,7 @@ export const HeroSection = () => {
         </div>
       </div>
 
-      {/* Scroll indicator }
+      {/* Scroll indicator */}
       <button
         onClick={scrollToContent}
         className="absolute bottom-10 left-1/2 -translate-x-1/2 text-primary-foreground/60 hover:text-primary-foreground transition-colors animate-float"
@@ -99,9 +99,9 @@ export const HeroSection = () => {
       </button>
     </section>
   );
-};*/
+};
 
-import { ChevronDown } from "lucide-react";
+/*import { ChevronDown } from "lucide-react";
 import { useState } from "react";
 import heroImage from "/images/Entrance_of_Old_Arab_Souk.webp";
 
@@ -130,7 +130,7 @@ const HeroSection = () => {
       dir={rtl ? "rtl" : "ltr"}
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
     >
-      {/* Background Image with overlay */}
+      {/* Background Image with overlay }
       <div className="absolute inset-0">
         <img
           src={heroImage}
@@ -142,13 +142,13 @@ const HeroSection = () => {
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-background to-transparent" />
       </div>
 
-      {/* Decorative elements */}
+      {/* Decorative elements }
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-heritage-gold/10 rounded-full blur-3xl" />
         <div className="absolute bottom-40 right-10 w-96 h-96 bg-heritage-ocean/10 rounded-full blur-3xl" />
       </div>
 
-      {/* Content */}
+      {/* Content }
       <div className="relative z-10 container mx-auto px-4 text-center pt-20">
         <div className="max-w-4xl mx-auto">
           <div
@@ -225,6 +225,6 @@ const HeroSection = () => {
       </div>
     </section>
   );
-};
+};*/
 
 export default HeroSection;

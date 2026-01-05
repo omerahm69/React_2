@@ -1,7 +1,6 @@
-/*import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
-import { useLanguage } from '@/i18n/LanguageContext';
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
@@ -112,7 +111,7 @@ export const FooterSection = () => {
   );
 };
 
-export default FooterSection;*/
+export default FooterSection;
 
 
 /*import { useLanguage } from '@/i18n/LanguageContext';
@@ -223,7 +222,7 @@ const Footer = () => {
   );
 };
 
-export default Footer;*/
+export default Footer;
 
 const Footer = () => {
   // Hardcoded footer content
@@ -272,5 +271,5 @@ const Footer = () => {
 };
 
 export default Footer;
-
+*/
 

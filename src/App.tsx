@@ -1,8 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-
-
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";
 import Home from "@/pages/Index";
@@ -11,6 +9,7 @@ import Activities from "@/pages/Our_Activities";
 import Heritage from "@/pages/Urban_Heritage";
 
 const queryClient = new QueryClient();
+
 
 const App = () => {
   return (
@@ -29,6 +28,4 @@ const App = () => {
     </QueryClientProvider>
   );
 };
-
 export default App;
-

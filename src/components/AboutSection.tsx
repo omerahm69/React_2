@@ -1,8 +1,9 @@
 
+import { useLanguage } from "@/contexts/LanguageContext";
 import { BookOpen, Building2, Users } from "lucide-react";
 
 export const AboutSection = () => {
-  const { t, dir } = useLanguage();
+  const { t, } = useLanguage();
   
   const features = [
     {

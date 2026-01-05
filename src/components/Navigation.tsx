@@ -1,11 +1,10 @@
 
 import logo from "@/assets/logo.webp";
-import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { LanguageSwitcher } from "./LanguageSwitcher";
 
 export const Navigation = () => {
   const { t, rtl } = useLanguage();

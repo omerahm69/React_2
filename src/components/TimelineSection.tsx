@@ -1,5 +1,5 @@
 
-/*import { useLanguage } from "@/i18n/LanguageContext";
+/*import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
@@ -131,10 +131,10 @@ const TimelineSection = () => {
   );
 };
 
-export default TimelineSection;
+export default TimelineSection;*/
 
 
-import { useLanguage } from "@/i18n/LanguageContext";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
@@ -164,7 +164,7 @@ const TimelineSection = () => {
 
   return (
     <section id="activities" className="py-24 md:py-36 relative overflow-hidden">
-      {/* Background styling }
+      {/* Background styling */}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30" />
 
       <div className="container mx-auto px-4 relative">
@@ -184,7 +184,7 @@ const TimelineSection = () => {
           </AnimatedSection>
 
           <div className="relative">
-            {/* Timeline Line }
+            {/* Timeline Line */}
             <div
               className={cn(
                 "absolute top-0 bottom-0 w-1 rounded-full",
@@ -195,7 +195,7 @@ const TimelineSection = () => {
               )}
             />
 
-            {/* Timeline Events *}
+            {/* Timeline Events */}
             <div className="space-y-12">
               {events.map((event, index) => (
                 <AnimatedSection
@@ -217,7 +217,7 @@ const TimelineSection = () => {
                       dir === "rtl" ? "flex-row-reverse" : "flex-row"
                     )}
                   >
-                    {/* Year Badge - Desktop *}
+                    {/* Year Badge - Desktop */}
                     <div
                       className={cn(
                         "hidden md:flex md:w-1/2 items-center",
@@ -252,7 +252,7 @@ const TimelineSection = () => {
                       </span>
                     </div>
 
-                    {/* Dot *}
+                    {/* Dot */}
                     <div
                       className={cn(
                         "absolute w-5 h-5 rounded-full top-4 z-10",
@@ -266,7 +266,7 @@ const TimelineSection = () => {
                       <div className="absolute inset-0 bg-heritage-ocean rounded-full animate-ping opacity-20" />
                     </div>
 
-                    {/* Content }
+                    {/* Content */}
                     <div
                       className={cn(
                         "md:w-1/2 flex-1",
@@ -275,7 +275,7 @@ const TimelineSection = () => {
                       )}
                     >
                       <div className="group card-gradient rounded-2xl p-6 lg:p-8 shadow-elevated border border-border/50 hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
-                        {/* Mobile year }
+                        {/* Mobile year */}
                         <span className="md:hidden inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary font-serif font-bold text-sm rounded-lg mb-4">
                           <Calendar className="w-4 h-4" />
                           {event.year}
@@ -290,7 +290,7 @@ const TimelineSection = () => {
               ))}
             </div>
 
-            {/* End marker }
+            {/* End marker*/ }
             <div
               className={cn(
                 "absolute -bottom-4 w-8 h-8 bg-gradient-to-br from-primary to-heritage-coral rounded-full",
@@ -309,11 +309,11 @@ const TimelineSection = () => {
   );
 };
 
-export default TimelineSection;*/
+export default TimelineSection;
 
 
 
-import { cn } from "@/lib/utils";
+/*import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 
@@ -333,7 +333,7 @@ const TimelineSection = () => {
 
   return (
     <section id="activities" className="py-24 md:py-36 relative overflow-hidden">
-      {/* Background styling */}
+      {/* Background styling *}
       <div className="absolute inset-0 bg-gradient-to-b from-secondary/30 via-secondary/50 to-secondary/30" />
 
       <div className="container mx-auto px-4 relative">
@@ -353,7 +353,7 @@ const TimelineSection = () => {
           </AnimatedSection>
 
           <div className="relative">
-            {/* Timeline Line */}
+            {/* Timeline Line }
             <div
               className={cn(
                 "absolute top-0 bottom-0 w-1 rounded-full",
@@ -362,7 +362,7 @@ const TimelineSection = () => {
               )}
             />
 
-            {/* Timeline Events */}
+            {/* Timeline Events }
             <div className="space-y-12">
               {timeline.events.map((event, index) => (
                 <AnimatedSection
@@ -376,7 +376,7 @@ const TimelineSection = () => {
                       rtl ? "flex-row-reverse" : "flex-row"
                     )}
                   >
-                    {/* Year Badge - Desktop */}
+                    {/* Year Badge - Desktop }
                     <div
                       className={cn(
                         "hidden md:flex md:w-1/2 items-center",
@@ -408,7 +408,7 @@ const TimelineSection = () => {
                       </span>
                     </div>
 
-                    {/* Dot */}
+                    {/* Dot }
                     <div
                       className={cn(
                         "absolute w-5 h-5 rounded-full top-4 z-10",
@@ -420,7 +420,7 @@ const TimelineSection = () => {
                       <div className="absolute inset-0 bg-heritage-ocean rounded-full animate-ping opacity-20" />
                     </div>
 
-                    {/* Content */}
+                    {/* Content }
                     <div
                       className={cn(
                         "md:w-1/2 flex-1",
@@ -429,7 +429,7 @@ const TimelineSection = () => {
                       )}
                     >
                       <div className="group card-gradient rounded-2xl p-6 lg:p-8 shadow-elevated border border-border/50 hover:shadow-soft transition-all duration-300 hover:-translate-y-1">
-                        {/* Mobile year badge */}
+                        {/* Mobile year badge }
                         <span className="md:hidden inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary font-serif font-bold text-sm rounded-lg mb-4">
                           <Calendar className="w-4 h-4" />
                           {event.year}
@@ -444,7 +444,7 @@ const TimelineSection = () => {
               ))}
             </div>
 
-            {/* End marker */}
+            {/* End marker }
             <div
               className={cn(
                 "absolute -bottom-4 w-8 h-8 bg-gradient-to-br from-primary to-heritage-coral rounded-full",
@@ -461,4 +461,4 @@ const TimelineSection = () => {
   );
 };
 
-export default TimelineSection;
+export default TimelineSection;*/
