@@ -13,6 +13,11 @@ const queryClient = new QueryClient();
 
 const App = () => {
   return (
+  <div>
+    <nav>
+      <LanguageSwitcher />
+    </nav>
+    <main>
     <QueryClientProvider client={queryClient}>
     
         <BrowserRouter>
@@ -26,6 +31,8 @@ const App = () => {
           </Routes>
         </BrowserRouter>
     </QueryClientProvider>
+    </main>
+    </div>
   );
 };
 export default App;

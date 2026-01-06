@@ -62,7 +62,7 @@ const LanguageSelect = () => {
   );
 };
 
-export default LanguageSelect;*/
+export default LanguageSelect;
 
 
 import { Button } from "@/components/ui/button";
@@ -108,4 +108,24 @@ export const LanguageSwitcher = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
+};*/
+
+
+import type { Language } from "./i18n/types";
+import { useLanguage } from "./i18n/useLanguage";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+
+
+const LanguageSwitcher = () => {
+  const { language, changeLanguage } = useLanguage();
+
+  return (
+    <select value={language} onChange={(e) => changeLanguage(e.target.value as Language)}>
+      <option value="en">English</option>
+      <option value="ar">العربية</option>
+      <option value="ti">ትግርኛ</option>
+    </select>
+  );
 };
+
+export default LanguageSwitcher;

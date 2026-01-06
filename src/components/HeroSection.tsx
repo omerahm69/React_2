@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { useLanguage } from "@/contexts/LanguageContext";
 import { ArrowDown } from "lucide-react";
+import { useLanguage } from "./i18n/useLanguage";
 
 export const HeroSection = () => {
   const { t, dir } = useLanguage();

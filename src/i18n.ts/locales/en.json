@@ -1,0 +1,7 @@
+{
+  "nav": { "home": "Home", "about": "About", "contact": "Contact" },
+  "hero": {
+    "title": "Massawa",
+    "description": "Discover the rich history of Eritrea's coastal gem."
+  }
+}
