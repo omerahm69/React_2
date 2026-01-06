@@ -5,19 +5,40 @@ import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSwitcher } from "./LanguageSwitcher";
+import { Button } from "@/components/ui/button";
+import{
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { useTranslation } from "react-i18next";
+
+const languages = [
+  { code: "en", name: "English", dir: "ltr" },
+  { code: "ar", name: "العربية", dir: "rtl" },
+  { code: "ti", name: "ትግርኛ", dir: "ltr" },
+];
 
 export const Navigation = () => {
   const { t, rtl } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const(t,i18n) =useTranslation();
 
   const navLinks = [
-    { href: "/", label: t("Home") },
+    { href: "/index", label: t("Home") },
     { href: "/About", label: t("About Us") },
     { href: "/Our_Activities", label: t("Our Activities") },
     { href: "/Urban_Heritage", label: t("Urban Heritage") },
     { href: "/Contact", label: t("Contact") },
   ];
+    const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+    const lang = languages.find((l) => l.code === code);
+    document.documentElement.dir = lang?.dir || "ltr";
+  };
+
 
   return (
     <nav 

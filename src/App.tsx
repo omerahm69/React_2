@@ -7,11 +7,13 @@ import Home from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import Activities from "@/pages/Our_Activities";
 import Heritage from "@/pages/Urban_Heritage";
+import { useTranslation } from "react-i18next";
 
 const queryClient = new QueryClient();
 
 
 const App = () => {
+  const{t}=useTranslation()
   return (
   <div>
     <nav>

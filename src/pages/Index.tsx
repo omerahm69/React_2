@@ -4,6 +4,7 @@ import TimelineSection from "@/components/TimelineSection";
 import { useTranslation } from "react-i18next";
 import FooterSection from "../components/FooterSection";
 import Header from '../components/Header';
+
 import HeritageSection from "../components/Heritage";
 
 const Index = () => {

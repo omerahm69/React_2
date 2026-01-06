@@ -3,6 +3,15 @@ import { Navigation } from "@/components/Navigation";
 
 import { Award, Heart, Target, Users } from "lucide-react";
 
+  const values = [
+  "Authentic preservation of historical sites",
+  "Community-driven heritage initiatives",
+  "Educational outreach programs",
+  "Sustainable cultural tourism",
+  "International collaboration",
+  "Digital documentation of artifacts",
+];
+
 const About = () => {
   const { t, rtl } = useLanguage();
 

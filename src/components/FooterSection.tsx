@@ -1,9 +1,11 @@
 import { Mail, MapPin, Phone } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
+  const { t } = useTranslation();
 
   const quickLinks = [
     { href: "/About", label: "About" },

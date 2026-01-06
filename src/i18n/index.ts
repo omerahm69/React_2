@@ -10,14 +10,19 @@ i18n
   .use(LanguageDetector)
   .use(initReactI18next)
   .init({
-    fallbackLng: "en",
-    debug: true,
-    detection: {
-        order: ["localStorage", "navigator", "htmlTag"],
-        caches: ["localStorage"]
+    resources: {
+      en: { translation: en },
+      ar: { translation: ar },
+      ti: { translation: ti },
     },
-    interpolation: { escapeValue: false },
-    resources: { en: { translation: en }, ar: { translation: ar }, ti: { translation: ti } }
-});
+    fallbackLng: "en",
+    interpolation: {
+      escapeValue: false,
+    },
+    detection: {
+      order: ["localStorage", "navigator"],
+      caches: ["localStorage"],
+    },
+  });
 
 export default i18n;
