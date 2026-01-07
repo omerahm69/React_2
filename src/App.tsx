@@ -15,7 +15,8 @@ const queryClient = new QueryClient();
 
 
 const App = () => {
-  const{t}=useTranslation()
+  const { t } = useTranslation();
+
   return (
   <div>
     <nav>
