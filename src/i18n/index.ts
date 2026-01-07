@@ -6,6 +6,11 @@ import ar from "./locales/ar.json";
 import en from "./locales/en.json";
 import ti from "./locales/ti.json";
 
+i18n.on("languageChanged", (lng) => {
+  document.documentElement.dir = i18n.dir(lng);
+});
+
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)
@@ -16,6 +21,7 @@ i18n
       ti: { translation: ti },
     },
     fallbackLng: "en",
+    debug:true,
     interpolation: {
       escapeValue: false,
     },
@@ -24,5 +30,10 @@ i18n
       caches: ["localStorage"],
     },
   });
+
+// Set text direction whenever language changes
+i18n.on("languageChanged", (lng) => {
+  document.documentElement.dir = i18n.dir(lng);
+});
 
 export default i18n;

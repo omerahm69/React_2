@@ -1,5 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { LanguageSwitcher } from "./components/LanguageSwitcher";
+
 
 import About from "@/pages/About";
 import Contact from "@/pages/Contact";

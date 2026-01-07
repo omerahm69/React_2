@@ -137,6 +137,7 @@ export default TimelineSection;*/
 
 import { cn } from "@/lib/utils";
 import { Calendar, Clock } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import AnimatedSection from "./AnimatedSection";
 
 type TimelineEvent = {
@@ -150,7 +151,9 @@ type TimelineData = {
 };
 
 const TimelineSection = () => {
-  const { t, dir } = useLanguage();
+    const { t, i18n } = useTranslation();
+    const dir = i18n.dir();
+
 
   //  Safely read the whole timeline object
   const timeline = t("timeline", {

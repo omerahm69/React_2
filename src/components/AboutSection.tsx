@@ -3,7 +3,7 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { BookOpen, Building2, Users } from "lucide-react";
 
 export const AboutSection = () => {
-  const { t, } = useLanguage();
+  const { t, rtl } = useLanguage();
   
   const features = [
     {

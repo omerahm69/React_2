@@ -108,7 +108,7 @@ export const LanguageSwitcher = () => {
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};*/
+};
 
 
 import type { Language } from "./i18n/types";
@@ -128,4 +128,38 @@ const LanguageSwitcher = () => {
   );
 };
 
-export default LanguageSwitcher;
+export default LanguageSwitcher;*/
+
+import { useTranslation } from "react-i18next";
+
+const languages = [
+  { code: "en", label: "English", dir: "ltr" },
+  { code: "ar", label: "العربية", dir: "rtl" },
+  { code: "ti", label: "ትግርኛ", dir: "ltr" },
+];
+
+export const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (code: string) => {
+    i18n.changeLanguage(code);
+
+    // Set direction for RTL / LTR
+    const lang = languages.find((l) => l.code === code);
+    document.documentElement.dir = lang?.dir || "ltr";
+  };
+
+  return (
+    <select
+      onChange={(e) => changeLanguage(e.target.value)}
+      value={i18n.language}
+      className="px-2 py-1 rounded border"
+    >
+      {languages.map((lang) => (
+        <option key={lang.code} value={lang.code}>
+          {lang.label}
+        </option>
+      ))}
+    </select>
+  );
+};

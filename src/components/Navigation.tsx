@@ -3,16 +3,12 @@ import logo from "@/assets/logo.webp";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { Button } from "@/components/ui/button";
-import{
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { useTranslation } from "react-i18next";
+
+
+
 
 const languages = [
   { code: "en", name: "English", dir: "ltr" },
@@ -21,17 +17,19 @@ const languages = [
 ];
 
 export const Navigation = () => {
-  const { t, rtl } = useLanguage();
+  
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const(t,i18n) =useTranslation();
+  const { t, i18n } = useTranslation();
+
+
 
   const navLinks = [
-    { href: "/index", label: t("Home") },
-    { href: "/About", label: t("About Us") },
-    { href: "/Our_Activities", label: t("Our Activities") },
-    { href: "/Urban_Heritage", label: t("Urban Heritage") },
-    { href: "/Contact", label: t("Contact") },
+    { href: "/", label: t("nav.Home") },
+    { href: "/About", label: t("nav.About Us") },
+    { href: "/Our_Activities", label: t("nav.Our Activities") },
+    { href: "/Urban_Heritage", label: t("nav.Urban Heritage") },
+    { href: "/Contact", label: t("nav.Contact") },
   ];
     const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
@@ -39,6 +37,10 @@ export const Navigation = () => {
     document.documentElement.dir = lang?.dir || "ltr";
   };
 
+  useEffect(() => {
+  console.log("Language switched to:", i18n.language);
+  console.log("Direction:", i18n.dir(i18n.language));
+}, [i18n.language]);
 
   return (
     <nav 
