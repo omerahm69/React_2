@@ -1,6 +1,6 @@
 
 /*import ar from "./locales/ar/translation.json";
-import en from "./locales/en/translation.json";
+import es/{{lng}}/translation.json'en from "./locales/en/translation.json";
 import ti from "./locales/ti/translation.json";
 
 import i18n from "i18next";
@@ -41,39 +41,44 @@ i18n.on("languageChanged", (lng) => {
 
 export default i18n;*/
 
-import ar from "./locales/ar/translation.json";
-import en from "./locales/en/translation.json";
-import ti from "./locales/ti/translation.json";
 
 
-import i18n from "i18next";
+import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
+import HttpBackend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
-// Update text direction dynamically
-i18n.on("languageChanged", (lng) => {
-  document.documentElement.dir = i18n.dir(lng);
+
+
+i18next.on("languageChanged", (lng) => {
+  document.documentElement.dir = i18next.dir(lng);
+  document.documentElement.lang = lng;
 });
 
-i18n
+i18next
   .use(LanguageDetector)
   .use(initReactI18next)
+  .use(HttpBackend)
+
   .init({
-    resources: {
-      en: { translation: en },
-      ar: { translation: ar },
-      ti: { translation: ti },
-    },
+    supportedLngs: ['en', 'ar', 'ti'],
     fallbackLng: "en",
-    debug: true,
+
+    backend: {
+      loadPath: "  http://localhost:8080/locales/{{lng}}/ar/translation.json",
+    },
+
+    detection: {
+      order: ["cookie","htmlTag", "localStorage", , "navigator"],
+      caches: ["localStorage"],
+    },
+
     interpolation: {
       escapeValue: false,
     },
-    detection: {
-      order: ["localStorage", "navigator"],
-      caches: ["localStorage"],
-    },
   });
 
-export default i18n;
+export default i18next;
+
+
 
