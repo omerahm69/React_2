@@ -1,4 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { LanguageSwitcher } from "./components/LanguageSwitcher";
 
@@ -9,13 +10,12 @@ import Home from "@/pages/Index";
 import NotFound from "@/pages/NotFound";
 import Activities from "@/pages/Our_Activities";
 import Heritage from "@/pages/Urban_Heritage";
-import { useTranslation } from "react-i18next";
 
 const queryClient = new QueryClient();
 
 
 const App = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
   <div>

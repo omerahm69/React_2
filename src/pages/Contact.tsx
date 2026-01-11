@@ -1,9 +1,9 @@
-import { Navigation } from "@/components/Navigation";
+/*import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/hooks/use-toast";
-
+import { useLanguage } from "@/hooks/useLanguage";
 import { Clock, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import FooterSection from "../components/FooterSection";
@@ -31,7 +31,7 @@ const Contact = () => {
       <Navigation />
       
       <main className="pt-24">
-        {/* Hero */}
+        {/* Hero *
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("contact.label")}</span>
@@ -46,11 +46,11 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Contact Section */}
+        {/* Contact Section *}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-6">
             <div className="grid lg:grid-cols-2 gap-16">
-              {/* Contact Info */}
+              {/* Contact Info *
               <div>
                 <h2 className="font-serif font-bold text-3xl text-foreground mb-8">
                   {t("")} <span className="gradient-text">{t("")}</span>
@@ -70,7 +70,7 @@ const Contact = () => {
                   ))}
                 </div>
               </div>
-              {/* Contact Form */}
+              {/* Contact Form *}
               <div className="card-hover bg-card p-8 rounded-3xl">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -135,4 +135,167 @@ const Contact = () => {
   );
 };
 
+export default Contact;*/
+
+
+import { Navigation } from "@/components/Navigation";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { toast } from "@/hooks/use-toast";
+
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { useState } from "react";
+import FooterSection from "../components/FooterSection";
+
+// Minimal translation stub
+const useLanguage = () => ({
+  t: (text: string) => text,
+});
+
+const Contact = () => {
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState({ name: "", email: "", subject: "", message: "" });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast({ title: t("contact.form.success"), description: t("contact.form.successDesc") });
+    setFormData({ name: "", email: "", subject: "", message: "" });
+  };
+
+  const contactInfo = [
+    { icon: MapPin, label: t("Address"), value: "Massawa Old Town, Eritrea" },
+    { icon: Mail, label: t("Email"), value: "info@urbanheritage.org" },
+    { icon: Phone, label: t("Phone"), value: "+291 1 123 456" },
+    { icon: Clock, label: t("Hours"), value: t("Mon-Fri 9am - 5pm") },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
+
+      <main className="pt-24s ">
+        {/* Hero Section */}
+        <section className="py-24 bg-white">
+          <div className="container mx-auto px-6 text-center lg:text-left">
+            <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">
+              {t("Contact")}
+            </span>
+
+            <h1 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mt-4 mb-6 leading-tight">
+              {t("Welcome to join us")}
+            </h1>
+
+            <p className="text-xl sm:text-2xl font-semibold gradient-text mb-6">
+              {t("Have questions about our work or want to get involved? We'd love to hear from you")}
+            </p>
+
+            <p className="max-w-3xl mx-auto lg:mx-0 text-muted-foreground text-base sm:text-lg leading-relaxed">
+              {t(
+                "The initiative is open to ideas and further initiatives to spread out the goals of the initiative, to the whole Eritrean diaspora. Therefore, we encourage all Eritreans to get on board with us to achieve our goals. The first step is to be with us on our mailing list. Get news about the initiative sent to your own box and leave your message by suggestions you have for improvement"
+              )}
+            </p>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-20 bg-background">
+          <div className="container mx-auto px-6">
+            <div className="grid lg:grid-cols-2 gap-16">
+              
+              {/* Contact Info */}
+              <div>
+                <h2 className="font-serif font-bold text-3xl text-foreground mb-8">
+                  {t("Get in Touch")}
+                </h2>
+
+                <div className="space-y-6">
+                  {contactInfo.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={item.label} className="flex items-start gap-4">
+                        <div className="p-3 rounded-xl bg-primary/10 text-primary flex items-center justify-center">
+                          <Icon size={20} />
+                        </div>
+                        <div>
+                          <span className="text-muted-foreground text-sm">{item.label}</span>
+                          <p className="text-foreground font-medium">{item.value}</p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div className="bg-card p-8 rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">{t("Name")}</label>
+                      <Input 
+                        value={formData.name}
+                        onChange={(e) => setFormData({...formData, name: e.target.value})}
+                        placeholder={t("Enter your name")}
+                        required
+                        className="bg-background"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-foreground mb-2">{t("Email")}</label>
+                      <Input 
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => setFormData({...formData, email: e.target.value})}
+                        placeholder={t("Enter your email")}
+                        required
+                        className="bg-background"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">{t("Subject")}</label>
+                    <Input 
+                      value={formData.subject}
+                      onChange={(e) => setFormData({...formData, subject: e.target.value})}
+                      placeholder={t("Enter subject")}
+                      required
+                      className="bg-background"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-foreground mb-2">{t("Message")}</label>
+                    <Textarea 
+                      value={formData.message}
+                      onChange={(e) => setFormData({...formData, message: e.target.value})}
+                      placeholder={t("Enter your message")}
+                      rows={5}
+                      required
+                      className="bg-background resize-none"
+                    />
+                  </div>
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="btn-premium w-full text-primary-foreground py-6 text-base font-semibold rounded-full hover:bg-primary/90 transition-colors duration-200"
+                  >
+                    <span className="relative z-10">{t("Send")}</span>
+                  </Button>
+                </form>
+              </div>
+
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <FooterSection/>
+    </div>
+  );
+};
+
 export default Contact;
+
+
+
+
