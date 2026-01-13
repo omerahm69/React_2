@@ -1,18 +1,17 @@
 
 
 import { ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { useLanguage } from "@/i18n/useLanguage;
 
 export const ActivitiesSection = () => {
-  const { t, rtl} = useLanguage();
+  const { t } = useTranslation();
 
   const activities = [
     {
-      dir={rtl ? "rtl" : "ltr"}
       number: "01",
-      title: t("Studies"),
-      description: t("Three studies were prepared, after reviewing previous studies. A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998"),
+      title: t("activitiesPage.main.study1"),
+      description: t("activitiesPage.main.study1"),
       image: "/images/Studi_1.webp",
     },
     {

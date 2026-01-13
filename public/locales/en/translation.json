@@ -19,6 +19,13 @@
     "activities": "Our Activities",
     "contact": "Contact Us"
   },
+  "navAlias": {
+    "Home": "Home",
+    "About Us": "About Us",
+    "Our Activities": "Our Activities",
+    "Urban Heritage": "Urban Heritage of Massawa",
+    "Contact": "Contact Us"
+  },
 
   "home": {
     "intro": {
@@ -44,6 +51,12 @@
     }
   },
 
+  "hero": {
+    "tagline": "Preserving History • Building Future",
+    "cta1": "Explore Our Mission",
+    "cta2": "View Heritage Sites"
+  },
+
   "about": {
     "title": "From Exile to Homecoming: Rediscovering Massawa's Urban Heritage",
     "intro": "An Eritrean civil initiative that seeks to document and protect the urban heritage of Massawa",
@@ -58,6 +71,19 @@
     "firstStageTitle": "First stage:",
     "firstStageText1": "Identifying the boundary of the area to be protected.",
     "firstStageText2": "Determining a preliminary list of the most important historical buildings."
+  ,
+  "feature1": {
+    "title": "Architectural Preservation",
+    "desc": "Documenting and restoring the unique Ottoman and Italian colonial architecture that defines Massawa's historic character."
+  },
+  "feature2": {
+    "title": "Community Engagement",
+    "desc": "Working closely with local communities to ensure heritage preservation reflects and respects cultural traditions."
+  },
+  "feature3": {
+    "title": "Cultural Documentation",
+    "desc": "Creating comprehensive archives of oral histories, traditions, and artistic expressions of Massawa's diverse heritage."
+  }
   },
 
   "mailing": {
@@ -70,6 +96,21 @@
     "messageLabel": "Message",
     "messagePlaceholder": "Write your message here",
     "submitButton": "Submit"
+  },
+
+  "activities": {
+    "label": "What We Do",
+    "title": "Our",
+    "title2": "Activities",
+    "learnMore": "Learn More",
+    "act2": {
+      "title": "Seminars",
+      "desc": "Holding seminars and spreading awareness of the importance of preserving the city's heritage."
+    },
+    "act3": {
+      "title": "Publication of studies",
+      "desc": "The initiative is open to publish some of their own studies in the coming future."
+    }
   },
 
   "contact": {
@@ -113,6 +154,24 @@
     }
   },
 
+  "contactAlias": {
+    "address": "Address",
+    "email": "Email",
+    "phone": "Phone",
+    "hours": "Opening Hours",
+    "hoursValue": "Monday – Friday, 9:00–17:00",
+    "form": {
+      "success": "Your message has been sent successfully!",
+      "successDesc": "Thank you for reaching out. We'll respond shortly.",
+      "nameLabel": "Your Name",
+      "emailLabel": "Your Email",
+      "subjectLabel": "Subject",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Write your message here...",
+      "submitButton": "Send Message"
+    }
+  },
+
   "activitiesPage": {
     "main": {
       "title": "Documenting History: The Journey of Protecting Massawa's Architectural Treasures",
@@ -120,6 +179,8 @@
       "study1": "A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998",
       "study2": "Study and Master plan for the old city of Massawa presented by Qatari Diar Real Estate Company in 2009"
     },
+
+    "study1": "A Preliminary Study and Plan to Preserve and Restore the Old city of Massawa by UNESCO 1998",
 
     "seminars": {
       "title": "Seminars",
@@ -132,6 +193,16 @@
       "title": "Publication of studies about the ancient city of Massawa",
       "description": "The initiative is open to publish some of their own studies in the coming future."
     }
+  },
+
+  "heritage": {
+    "label": "Featured Heritage",
+    "title1": "The Pearl of the",
+    "title2": "Red Sea",
+    "p1": "Massawa, known as the \"Pearl of the Red Sea,\" boasts an extraordinary architectural heritage that reflects centuries of diverse cultural influences.",
+    "p2": "The old town, with its narrow winding streets and historic buildings, represents one of the most significant urban heritage sites in East Africa.",
+    "cta": "Discover Massawa's Heritage",
+    "years": "Years of History"
   },
 
   "urban": {

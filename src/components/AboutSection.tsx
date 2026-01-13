@@ -1,9 +1,9 @@
 
-import { useLanguage } from "@/contexts/LanguageContext";
 import { BookOpen, Building2, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export const AboutSection = () => {
-  const { t, rtl } = useLanguage();
+  const { t } = useTranslation();
   
   const features = [
     {
@@ -31,8 +31,7 @@ export const AboutSection = () => {
           <div>
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("about.label")}</span>
             <h2 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mt-4 mb-8">
-              {t("about.title1")}
-              <span className="gradient-text block">{t("about.title2")}</span>
+              {t("about.title")}
             </h2>
             
             <div className="drop-cap text-muted-foreground text-lg leading-relaxed mb-8">

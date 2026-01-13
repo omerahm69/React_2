@@ -41,24 +41,16 @@ export const HeroSection = () => {
           className="animate-fade-up font-serif font-bold text-6xl sm:text-7xl md:text-8xl lg:text-9xl text-primary-foreground text-shadow-hero leading-none mb-8"
           style={{ animationDelay: "0.1s" }}
         >
-          <span className="gradient-text">
-            {t("Massawa Urban Heritage")}
-          </span>
+          <span className="gradient-text">{t("home.intro.title")}</span>
           <br />
-          <span className="text-primary-foreground">
-            {t("Discover the Rich History of Eritrean's Coastal Gem")}
-          </span>
+          <span className="text-primary-foreground">{t("home.intro.text")}</span>
         </h2>
 
         <div
           className="animate-fade-up max-w-2xl mx-auto text-lg sm:text-xl text-primary-foreground/80 mb-12 leading-relaxed"
           style={{ animationDelay: "0.2s" }}
         >
-          <p className="mb-6">
-            {t(
-              "The city is considered a mosaic carrying in its folds a mixture of residents and dialects, like all the ports in the world. The immigration and merchants coming from all countries settled in it, mixed with its residents, and set up their businesses. Everyone lived in it like an open museum that different from the rest of their surroundings. "
-            )}
-          </p>
+          <p className="mb-6">{t("mail.desc1")}</p>
 
           <img
             src="/images/Old_post_office.webp"

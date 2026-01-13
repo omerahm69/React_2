@@ -130,6 +130,7 @@ const LanguageSwitcher = () => {
 
 export default LanguageSwitcher;*/
 
+import { useLanguage } from "@/contexts/LanguageContext";
 import { useTranslation } from "react-i18next";
 
 const languages = [
@@ -140,6 +141,14 @@ const languages = [
 
 export const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
+  // keep the context in sync for components using useLanguage
+  const languageCtx = (() => {
+    try {
+      return useLanguage();
+    } catch {
+      return undefined as any;
+    }
+  })();
 
   const changeLanguage = (code: string) => {
     i18n.changeLanguage(code);
@@ -147,12 +156,24 @@ export const LanguageSwitcher = () => {
     // Set direction for RTL / LTR
     const lang = languages.find((l) => l.code === code);
     document.documentElement.dir = lang?.dir || "ltr";
+
+    // If a LanguageContext is present, update it as well
+    if (languageCtx && typeof languageCtx.setLanguage === "function") {
+      languageCtx.setLanguage(code as any);
+    } else {
+      // Fallback: persist selection so LanguageContext can pick it up on reload
+      try {
+        localStorage.setItem("language", code);
+      } catch {}
+    }
   };
+
+  const current = i18n.language || (languageCtx && languageCtx.language) || "en";
 
   return (
     <select
       onChange={(e) => changeLanguage(e.target.value)}
-      value={i18n.language}
+      value={current}
       className="px-2 py-1 rounded border"
     >
       {languages.map((lang) => (

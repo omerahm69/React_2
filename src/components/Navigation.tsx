@@ -2,7 +2,7 @@
 import logo from "@/assets/logo.webp";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSwitcher } from "./LanguageSwitcher";
@@ -25,27 +25,22 @@ export const Navigation = () => {
 
 
   const navLinks = [
-    { href: "/", label: t("nav.Home") },
-    { href: "/About", label: t("nav.About Us") },
-    { href: "/Our_Activities", label: t("nav.Our Activities") },
-    { href: "/Urban_Heritage", label: t("nav.Urban Heritage") },
-    { href: "/Contact", label: t("nav.Contact") },
+    { href: "/", label: t("nav.home") },
+    { href: "/About", label: t("nav.about") },
+    { href: "/Our_Activities", label: t("nav.activities") },
+    { href: "/Urban_Heritage", label: t("nav.heritage") },
+    { href: "/Contact", label: t("nav.contact") },
   ];
-    const changeLanguage = (code: string) => {
-    i18n.changeLanguage(code);
-    const lang = languages.find((l) => l.code === code);
-    document.documentElement.dir = lang?.dir || "ltr";
-  };
 
   useEffect(() => {
-  console.log("Language switched to:", i18n.language);
-  console.log("Direction:", i18n.dir(i18n.language));
-}, [i18n.language]);
+    // ensure document direction stays in sync with i18next
+    try {
+      document.documentElement.dir = i18n.dir(i18n.language || "en");
+    } catch {}
+  }, [i18n.language]);
 
   return (
-    <nav 
-    dir={rtl ? "rtl" : "ltr"}
-    className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}

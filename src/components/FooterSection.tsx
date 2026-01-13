@@ -5,13 +5,13 @@ import AnimatedSection from "./AnimatedSection";
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
-  const { t, rtl } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const quickLinks = [
-    { href: "/About", label: "About" },
-    { href: "/Our_Activities", label: "Activities" },
-    { href: "/Urban_Heritage", label: "Heritage" },
-    { href: "/Contact", label: "Contact" },
+    { href: "/About", label: t("nav.about") },
+    { href: "/Our_Activities", label: t("nav.activities") },
+    { href: "/Urban_Heritage", label: t("nav.heritage") },
+    { href: "/Contact", label: t("nav.contact") },
   ];
 
   return (
@@ -51,7 +51,7 @@ export const FooterSection = () => {
 
                 <div>
                   <h4 className="font-serif font-semibold text-lg mb-6">
-                    Quick Links
+                    {t("nav.activities")}
                   </h4>
                   <nav className="space-y-3">
                     {quickLinks.map((link) => (
@@ -67,7 +67,7 @@ export const FooterSection = () => {
                 </div>
                 <div>
                   <h4 className="font-serif font-semibold text-lg mb-6">
-                    Contact Us
+                    {t("contact.infoSection.title")}
                   </h4>
                   <div className="space-y-4">
                     <div className="flex items-start gap-3">
@@ -75,27 +75,15 @@ export const FooterSection = () => {
                         size={18}
                         className="text-primary mt-1 shrink-0"
                       />
-                      <span className="text-secondary-foreground/70 text-sm">
-                        Norge
-                      </span>
+                      <span className="text-secondary-foreground/70 text-sm">{t("contact.infoSection.addressLabel").replace(":", "")}</span>
                     </div>
                     <div className="flex items-center gap-3">
                       <Mail size={18} className="text-primary shrink-0" />
-                      <a
-                        href="mailto:info@urbanheritage.org"
-                        className="text-secondary-foreground/70 text-sm hover:text-primary transition-colors"
-                      >
-                        AKAN.heritage.1@gmail.com
-                      </a>
+                      <a href="mailto:info@urbanheritage.org" className="text-secondary-foreground/70 text-sm hover:text-primary transition-colors">info@urbanheritage.org</a>
                     </div>
                     <div className="flex items-center gap-3">
                       <Phone size={18} className="text-primary shrink-0" />
-                      <span className="text-secondary-foreground/70 text-sm">
-                        +4792510241{" "}
-                        <a href="https://www.facebook.com/share/p/rYbbZzmT5W6XmmBj/?mibextid=WC7FNe">
-                          facebook
-                        </a>
-                      </span>
+                      <span className="text-secondary-foreground/70 text-sm">+4792510241 <a href="https://www.facebook.com/share/p/rYbbZzmT5W6XmmBj/?mibextid=WC7FNe">facebook</a></span>
                     </div>
                   </div>
                 </div>
