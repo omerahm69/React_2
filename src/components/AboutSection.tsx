@@ -29,7 +29,7 @@ export const AboutSection = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Content */}
           <div>
-            <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("about.label")}</span>
+            <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">{t("about.badge")}</span>
             <h2 className="font-serif font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mt-4 mb-8">
               {t("about.title")}
             </h2>

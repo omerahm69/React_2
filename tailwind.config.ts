@@ -61,18 +61,13 @@ export default {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      colors: {
+        "heritage-gold": "#D4AF37",
+        "heritage-ocean": "#1E5D8C",
+        "heritage-coral": "#E76F51",
+      },
     },
   },
-
-  extend: {
-  colors: {
-    "heritage-gold": "#D4AF37",
-    "heritage-ocean": "#1E5D8C",
-    "heritage-coral": "#E76F51",
-  }
-}
-
-
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 } satisfies Config;
 

@@ -1,36 +1,20 @@
 import { Navigation } from "@/components/Navigation";
+import { useTranslation } from "react-i18next";
+import FooterSection from "../components/FooterSection";
+
+type HeritageSite = {
+  name: string;
+  era: string;
+  description: string;
+  image: string;
+};
 
 const Heritage = () => {
-  const sites = [
-    {
-      name: "Classification of the historical buildings",
-      era: "19th Century",
-      description:
-        "The former residence of Ottoman governors, featuring distinctive coral-block construction and intricate wooden balconies.",
-      image: "/images/Classification_of_Building.webp",
-    },
-    {
-      name: "Sheikh Hanafi Mosque",
-      era: "16th Century",
-      description:
-        "One of the oldest mosques in Eritrea, representing centuries of Islamic architectural tradition on the Red Sea coast.",
-      image: "/images/",
-    },
-    {
-      name: "Torino Hotell",
-      era: "Early 20th Century",
-      description:
-        "A stunning example of Italian rationalist architecture, showcasing the colonial era's European influence on local building styles.",
-      image: "/images/Torino_hotell.webp",
-    },
-    {
-      name: "",
-      era: "18th–19th Century",
-      description:
-        "Historic trading warehouses that once stored goods from across the Indian Ocean trading network.",
-      image: "",
-    },
-  ];
+  const { t } = useTranslation();
+
+  const sites = (
+    t("urban.sites", { returnObjects: true }) as HeritageSite[] | undefined
+  ) ?? [];
 
   return (
     <div className="min-h-screen bg-background">
@@ -41,36 +25,20 @@ const Heritage = () => {
         <section className="py-20 bg-card">
           <div className="container mx-auto px-6">
             <span className="text-primary font-medium tracking-[0.2em] uppercase text-sm">
-              Urban Heritage
+              {t("nav.heritage")}
             </span>
 
             <h1 className="font-serif font-bold text-5xl sm:text-6xl lg:text-7xl text-foreground mt-4 mb-8">
-              International conventions related to Urban Heritage
+              {t("urban.conventionsTitle")}
             </h1>
 
-            <p>
-              The Convention of Heritage 1972: It is one of the most important
-              tools to protect and maintain World Cultural Heritage. Most
-              important Organization in this field: The United Nations
-              Educational, Scientific and Cultural Organization (UNESCO). For
-              more information World Heritage Centre (WHC) International Council
-              On Monuments and Sites (ICOMOS) For more information
+            <p className="max-w-3xl text-muted-foreground text-lg leading-relaxed">
+              {t("urban.conventionsText")}
             </p>
 
-            <span className="gradient-text">
-              An overview of the urban history of the ancient city of Massawa
+            <span className="gradient-text block mt-6 text-lg font-semibold">
+              {t("urban.massawaOverviewTitle")}
             </span>
-
-            <div className="max-w-3xl">
-              <div className="drop-cap text-muted-foreground text-lg leading-relaxed">
-                The Convention of Heritage 1972: It is one of the most important
-                tools to protect and maintain World Cultural Heritage. Most
-                important Organization in this field: The United Nations
-                Educational, Scientific and Cultural Organization (UNESCO). For
-                more information World Heritage Centre (WHC) International
-                Council On Monuments and Sites (ICOMOS) For more information
-              </div>
-            </div>
           </div>
         </section>
 
@@ -80,15 +48,21 @@ const Heritage = () => {
             <div className="grid md:grid-cols-2 gap-8">
               {sites.map((site) => (
                 <article
-                  key={site.name || site.era}
+                  key={site.name}
                   className="group card-hover bg-card rounded-3xl overflow-hidden"
                 >
                   <div className="relative h-64 overflow-hidden">
-                    <img
-                      src={site.image}
-                      alt={site.name}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
+                    {site.image ? (
+                      <img
+                        src={site.image}
+                        alt={site.name}
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gradient-to-br from-primary/20 to-heritage-ocean/20 flex items-center justify-center text-muted-foreground">
+                        {site.name}
+                      </div>
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent" />
                     <span className="absolute bottom-4 left-6 px-3 py-1 rounded-full text-xs font-medium bg-primary/90 text-primary-foreground">
                       {site.era}
@@ -110,7 +84,7 @@ const Heritage = () => {
         </section>
       </main>
 
-      <Footer />
+      <FooterSection />
     </div>
   );
 };

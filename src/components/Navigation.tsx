@@ -7,17 +7,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useLocation } from "react-router-dom";
 import { LanguageSwitcher } from "./LanguageSwitcher";
 
-
-
-
-const languages = [
-  { code: "en", name: "English", dir: "ltr" },
-  { code: "ar", name: "العربية", dir: "rtl" },
-  { code: "ti", name: "ትግርኛ", dir: "ltr" },
-];
-
 export const Navigation = () => {
-  
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { t, i18n } = useTranslation();
@@ -34,10 +24,8 @@ export const Navigation = () => {
 
   useEffect(() => {
     // ensure document direction stays in sync with i18next
-    try {
-      document.documentElement.dir = i18n.dir(i18n.language || "en");
-    } catch {}
-  }, [i18n.language]);
+    document.documentElement.dir = i18n.dir(i18n.language || "en");
+  }, [i18n, i18n.language]);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">

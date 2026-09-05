@@ -1,24 +1,15 @@
-
 import { Building2, Landmark, Users } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import AnimatedSection from "./AnimatedSection";
 
 const HeritageSection = () => {
-  // Hardcoded content instead of useLanguage()
-  const heritage = {
-    title: "Urban Heritage of Massawa",
-    content1:
-      "Massawa's urban heritage is marked by its historic buildings, Ottoman influences, and unique coral-block architecture with intricately carved wooden balconies.",
-    content2:
-      "The city also showcases Italian colonial architecture and historic trading warehouses that once connected Massawa to international trade networks.",
-  };
-
-  // Hardcoded RTL
-  const rtl = false;
+  const { t, i18n } = useTranslation();
+  const dir = i18n.dir();
 
   return (
     <section
       id="heritage"
-      dir={rtl ? "rtl" : "ltr"}
+      dir={dir}
       className="py-24 md:py-36 relative overflow-hidden"
     >
       {/* Enhanced background gradient */}
@@ -41,11 +32,11 @@ const HeritageSection = () => {
               </div>
 
               <p className="text-primary font-medium text-sm tracking-wider uppercase mb-3">
-                Urban Heritage
+                {t("nav.heritage")}
               </p>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-tight max-w-4xl">
-                {heritage.title}
+                {t("home.heritage.title")}
               </h2>
             </div>
           </AnimatedSection>
@@ -57,7 +48,7 @@ const HeritageSection = () => {
                   <Landmark className="w-6 h-6 text-heritage-coral" />
                 </div>
                 <p className="text-lg text-foreground/80 leading-relaxed drop-cap">
-                  {heritage.content1}
+                  {t("home.heritage.content1")}
                 </p>
               </div>
             </AnimatedSection>
@@ -68,7 +59,7 @@ const HeritageSection = () => {
                   <Users className="w-6 h-6 text-heritage-ocean" />
                 </div>
                 <p className="text-lg text-foreground/80 leading-relaxed">
-                  {heritage.content2}
+                  {t("home.heritage.content2")}
                 </p>
               </div>
             </AnimatedSection>

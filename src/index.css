@@ -13,6 +13,9 @@
   --color-ring: var(--ring);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-heritage-gold: #D4AF37;
+  --color-heritage-ocean: #1E5D8C;
+  --color-heritage-coral: #E76F51;
 }
 
 @layer base {

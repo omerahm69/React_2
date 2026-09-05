@@ -180,7 +180,7 @@ const Contact = () => {
 
             <p className="text-xl sm:text-2xl font-semibold gradient-text mb-6">{t("contact.subtitle")}</p>
 
-            <p className="max-w-3xl mx-auto lg:mx-0 text-muted-foreground text-base sm:text-lg leading-relaxed">{t("mail.desc1")}</p>
+            <p className="max-w-3xl mx-auto lg:mx-0 text-muted-foreground text-base sm:text-lg leading-relaxed">{t("mailing.desc1")}</p>
           </div>
         </section>
 

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 export const HeritageHighlight = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <section className="py-24 bg-background relative overflow-hidden">
@@ -17,7 +17,7 @@ export const HeritageHighlight = () => {
           <div className="relative">
             <div className="card-hover rounded-3xl overflow-hidden">
               <img 
-                src="/IMG-20231231-WA0008.webp"
+                src="/images/IMG-20231231-WA0008.webp"
                 alt="Massawa historic port"
                 className="w-full h-[500px] object-cover"
               />

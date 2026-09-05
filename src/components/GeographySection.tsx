@@ -1,25 +1,15 @@
 import AnimatedSection from '@/components/AnimatedSection';
 import { Anchor, Compass, MapPin } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const GeographySection = () => {
-  // Hardcoded translations
-  const t = {
-    geography: {
-      title: "Geographical overview of the city of Massawa",
-      content:
-        "Massawa is the second most important city and the main port in Eritrea, it is located on the coast of the most important international trade lines, and it was an important historical port for several centuries. The city is located on the souther.",
-      image: "Map of Massawa",
-    },
-    about: "About Massawa",
-  };
-
-  // Hardcoded RTL (set false for now)
-  const rtl = false;
+  const { t, i18n } = useTranslation();
+  const dir = i18n.dir();
 
   return (
     <section
       id="about"
-      dir={rtl ? "rtl" : "ltr"}
+      dir={dir}
       className="py-24 md:py-36 bg-background relative overflow-hidden"
     >
       {/* Decorative background elements */}
@@ -32,22 +22,22 @@ const GeographySection = () => {
         <div className="max-w-5xl mx-auto">
           <AnimatedSection animation="fade-up">
             <div className="flex flex-col md:flex-row items-start md:items-center gap-4 mb-10">
-              <div className="w-16 h-16 bg-gradient-to-br from-heritage-ocean to-heritage-ocean/70 rounded-2xl flex items-center justify-center shadow-elevated">
+              <div className="w-16 h-16 bg-gradient-to-br from-heritage-ocean to-heritage-ocean/70 rounded-2xl flex items-center justify-center shadow-elevated shrink-0">
                 <MapPin className="w-8 h-8 text-white" />
               </div>
               <div>
                 <p className="text-heritage-ocean font-medium text-sm tracking-wider uppercase mb-1">
-                  {t.about}
+                  {t("nav.about")}
                 </p>
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground leading-tight">
-                  {t.geography.title}
+                  {t("home.geo.title")}
                 </h2>
                 <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
-                  {t.geography.content}
+                  {t("home.geo.text")}
                 </p>
                 <img
                   src="images/Kart_of_Massawa.webp"
-                  alt={t.geography.image}
+                  alt={t("home.geo.title")}
                   className="mt-8 w-full h-64 object-cover rounded-xl shadow-elevated"
                 />
               </div>
@@ -60,7 +50,7 @@ const GeographySection = () => {
               <div className="absolute top-0 right-0 w-32 h-32 bg-heritage-ocean/5 rounded-bl-[100px]" />
 
               <p className="text-lg md:text-xl text-foreground/80 leading-relaxed drop-cap relative z-10">
-                {t.geography.content}
+                {t("home.geo.text")}
               </p>
 
               {/* Feature highlights */}

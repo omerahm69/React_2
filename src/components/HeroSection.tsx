@@ -3,7 +3,7 @@ import { ArrowDown } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 export const HeroSection = () => {
-   const { t, i18n } = useTranslation();
+   const { t } = useTranslation();
   
 
   const scrollToContent = () => {
@@ -20,7 +20,7 @@ export const HeroSection = () => {
             to bottom,
             hsla(20, 9%, 88%, 0.6),
             hsla(30, 2%, 40%, 0.8)
-          ), url("/assets/Entrance_of_Old_Arab_Souk.webp")`,
+          ), url("/images/Entrance_of_Old_Arab_Souk.webp")`,
         }}
       />
 
@@ -50,7 +50,7 @@ export const HeroSection = () => {
           className="animate-fade-up max-w-2xl mx-auto text-lg sm:text-xl text-primary-foreground/80 mb-12 leading-relaxed"
           style={{ animationDelay: "0.2s" }}
         >
-          <p className="mb-6">{t("mail.desc1")}</p>
+          <p className="mb-6">{t("mailing.desc1")}</p>
 
           <img
             src="/images/Old_post_office.webp"

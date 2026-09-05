@@ -5,7 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 
 export const FooterSection = () => {
   const currentYear = new Date().getFullYear();
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const quickLinks = [
     { href: "/About", label: t("nav.about") },

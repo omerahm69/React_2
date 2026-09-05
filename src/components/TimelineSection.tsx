@@ -145,25 +145,36 @@ type TimelineEvent = {
   description: string;
 };
 
-type TimelineData = {
-  title?: string;
-  events?: TimelineEvent[];
-};
-
 const TimelineSection = () => {
-    const { t, i18n } = useTranslation();
-    const dir = i18n.dir();
+  const { t, i18n } = useTranslation();
+  const dir = i18n.dir();
 
+  // Read the timeline object (fall back to legacy nested structure if present)
+  const timeline = (t("home.timeline", { returnObjects: true }) ||
+    t("section.timeline", { returnObjects: true })) as
+    | Record<string, string>
+    | undefined;
 
-  //  Safely read the whole timeline object
-  const timeline = t("timeline", {
-    returnObjects: true,
-  }) as TimelineData;
+  const events: TimelineEvent[] = [];
 
-  //  Guard against undefined / wrong shapes
-  const events: TimelineEvent[] = Array.isArray(timeline?.events)
-    ? timeline.events
-    : [];
+  if (timeline && typeof timeline === "object") {
+    for (let i = 1; i <= 7; i++) {
+      const item = timeline[`item${i}`];
+      if (typeof item !== "string" || !item) continue;
+
+      const colonIndex = item.indexOf(":");
+      if (colonIndex > -1) {
+        events.push({
+          year: item.slice(0, colonIndex).trim(),
+          description: item.slice(colonIndex + 1).trim(),
+        });
+      } else {
+        events.push({ year: item, description: item });
+      }
+    }
+  }
+
+  const title = timeline?.title || t("home.timeline.title");
 
   return (
     <section id="activities" className="py-24 md:py-36 relative overflow-hidden">
@@ -181,7 +192,7 @@ const TimelineSection = () => {
                 Historical Journey
               </p>
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif font-semibold text-foreground">
-                {timeline?.title}
+                {title}
               </h2>
             </div>
           </AnimatedSection>
